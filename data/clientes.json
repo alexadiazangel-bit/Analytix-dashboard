@@ -6,7 +6,7 @@
       "comps": 4985,
       "graph": "PENDIENTE",
       "conns": 1673,
-      "obs": "Actividad en curso â seguimiento activo"
+      "obs": "Actividad en curso Ã¢ÂÂ seguimiento activo"
     },
     {
       "name": "NISSAN COLVISEG",
@@ -14,7 +14,7 @@
       "comps": 4562,
       "graph": "PENDIENTE",
       "conns": 1354,
-      "obs": "Falta agregar nodo de cÃ¡maras en grafo"
+      "obs": "Falta agregar nodo de cÃÂ¡maras en grafo"
     },
     {
       "name": "GECOLSA",
@@ -22,7 +22,7 @@
       "comps": 576,
       "graph": "OK",
       "conns": 33,
-      "obs": "2 componentes desmontados Â· Ticket #11695619689"
+      "obs": "2 componentes desmontados ÃÂ· Ticket #11695619689"
     },
     {
       "name": "CANNON ALARMA",
@@ -30,7 +30,7 @@
       "comps": 144,
       "graph": "PENDIENTE",
       "conns": 6,
-      "obs": "Falta agregar nodo cÃ¡maras â desactivar opciÃ³n"
+      "obs": "Falta agregar nodo cÃÂ¡maras Ã¢ÂÂ desactivar opciÃÂ³n"
     },
     {
       "name": "REENCAFE POLLO",
@@ -46,7 +46,7 @@
       "comps": 119,
       "graph": "PENDIENTE",
       "conns": 11,
-      "obs": "Desactivar nodo cÃ¡maras en grafo"
+      "obs": "Desactivar nodo cÃÂ¡maras en grafo"
     },
     {
       "name": "REENCAFE BODEGA",
@@ -66,11 +66,11 @@
     },
     {
       "name": "LADRILLERA SANTA FE",
-      "cat": "ConstrucciÃ³n",
+      "cat": "ConstrucciÃÂ³n",
       "comps": 0,
       "graph": "PENDIENTE",
       "conns": 0,
-      "obs": "Falta agregar nodo de cÃ¡maras en grafo"
+      "obs": "Falta agregar nodo de cÃÂ¡maras en grafo"
     },
     {
       "name": "ENTEL",
@@ -124,12 +124,21 @@
   "notes": {
     "0": [
       {
-        "text": "Seguimiento en creaciÃ³n de relaciones",
+        "text": "Seguimiento en creaciÃÂ³n de relaciones",
         "ts": "24 de may de 2026 10:18 a. m."
       }
     ]
   },
   "components": {},
-  "lastSync": "2026-05-24T15:19:50.916Z",
-  "filesIndex": {}
+  "lastSync": "2026-05-24T15:22:59.747Z",
+  "filesIndex": {
+    "13": [
+      {
+        "name": "Jarinu-Cotia-Grafo.png",
+        "mime": "image/png",
+        "size": 150969,
+        "date": "2026-05-24T15:22:54.674Z"
+      }
+    ]
+  }
 }
