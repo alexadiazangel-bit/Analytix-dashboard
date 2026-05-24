@@ -1,0 +1,135 @@
+{
+  "clients": [
+    {
+      "name": "CLARO",
+      "cat": "Telecomunicaciones",
+      "comps": 4985,
+      "graph": "PENDIENTE",
+      "conns": 1673,
+      "obs": "Actividad en curso — seguimiento activo"
+    },
+    {
+      "name": "NISSAN COLVISEG",
+      "cat": "Automotriz",
+      "comps": 4562,
+      "graph": "PENDIENTE",
+      "conns": 1354,
+      "obs": "Falta agregar nodo de cámaras en grafo"
+    },
+    {
+      "name": "GECOLSA",
+      "cat": "Maquinaria",
+      "comps": 576,
+      "graph": "CRÍTICO",
+      "conns": 33,
+      "obs": "2 componentes desmontados · Ticket #11695619689"
+    },
+    {
+      "name": "CANNON ALARMA",
+      "cat": "Seguridad",
+      "comps": 144,
+      "graph": "PENDIENTE",
+      "conns": 6,
+      "obs": "Falta agregar nodo cámaras — desactivar opción"
+    },
+    {
+      "name": "REENCAFE POLLO",
+      "cat": "Alimentos",
+      "comps": 148,
+      "graph": "PENDIENTE",
+      "conns": 2,
+      "obs": "Faltan componentes NVR y Gateway"
+    },
+    {
+      "name": "GBC",
+      "cat": "Industrial",
+      "comps": 119,
+      "graph": "PENDIENTE",
+      "conns": 11,
+      "obs": "Desactivar nodo cámaras en grafo"
+    },
+    {
+      "name": "REENCAFE BODEGA",
+      "cat": "Alimentos",
+      "comps": 70,
+      "graph": "PENDIENTE",
+      "conns": 0,
+      "obs": "Faltan componentes NVR y Gateway"
+    },
+    {
+      "name": "COLVISEG",
+      "cat": "Seguridad",
+      "comps": 8,
+      "graph": "PENDIENTE",
+      "conns": 6,
+      "obs": "Desactivar nodo Servidor Lenovo 2 y Lenovo 3"
+    },
+    {
+      "name": "LADRILLERA SANTA FE",
+      "cat": "Construcción",
+      "comps": 0,
+      "graph": "PENDIENTE",
+      "conns": 0,
+      "obs": "Falta agregar nodo de cámaras en grafo"
+    },
+    {
+      "name": "ENTEL",
+      "cat": "Telecomunicaciones",
+      "comps": 0,
+      "graph": "PENDIENTE",
+      "conns": 133,
+      "obs": "Falta agregar nodo de variables en grafo"
+    },
+    {
+      "name": "NUTRESA",
+      "cat": "Alimentos",
+      "comps": 0,
+      "graph": "OK",
+      "conns": 22,
+      "obs": "Sin observaciones"
+    },
+    {
+      "name": "TITAN PLAZA",
+      "cat": "Retail",
+      "comps": 17,
+      "graph": "OK",
+      "conns": 10,
+      "obs": "Sin observaciones"
+    },
+    {
+      "name": "GIMNASIO",
+      "cat": "Salud / Fitness",
+      "comps": 11,
+      "graph": "OK",
+      "conns": 6,
+      "obs": "Sin observaciones"
+    },
+    {
+      "name": "STERIGENIC",
+      "cat": "Salud",
+      "comps": 12,
+      "graph": "OK",
+      "conns": 3,
+      "obs": "Sin observaciones"
+    },
+    {
+      "name": "CANNON LORAWAN",
+      "cat": "Seguridad",
+      "comps": 4,
+      "graph": "OK",
+      "conns": 3,
+      "obs": "Sin observaciones"
+    }
+  ],
+  "notes": {
+    "0": [
+      {
+        "text": "Seguimiento en creación de relaciones",
+        "ts": "24 de may de 2026 10:18 a. m."
+      }
+    ]
+  },
+  "components": {},
+  "lastSync": "2026-05-24T15:18:57.687Z",
+  "filesIndex": {}
+}
