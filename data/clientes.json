@@ -6,7 +6,7 @@
       "comps": 4985,
       "graph": "PENDIENTE",
       "conns": 1673,
-      "obs": "Actividad en curso — seguimiento activo"
+      "obs": "Actividad en curso â seguimiento activo"
     },
     {
       "name": "NISSAN COLVISEG",
@@ -14,15 +14,15 @@
       "comps": 4562,
       "graph": "PENDIENTE",
       "conns": 1354,
-      "obs": "Falta agregar nodo de cámaras en grafo"
+      "obs": "Falta agregar nodo de cÃ¡maras en grafo"
     },
     {
       "name": "GECOLSA",
       "cat": "Maquinaria",
       "comps": 576,
-      "graph": "CRÍTICO",
+      "graph": "OK",
       "conns": 33,
-      "obs": "2 componentes desmontados · Ticket #11695619689"
+      "obs": "2 componentes desmontados Â· Ticket #11695619689"
     },
     {
       "name": "CANNON ALARMA",
@@ -30,7 +30,7 @@
       "comps": 144,
       "graph": "PENDIENTE",
       "conns": 6,
-      "obs": "Falta agregar nodo cámaras — desactivar opción"
+      "obs": "Falta agregar nodo cÃ¡maras â desactivar opciÃ³n"
     },
     {
       "name": "REENCAFE POLLO",
@@ -46,7 +46,7 @@
       "comps": 119,
       "graph": "PENDIENTE",
       "conns": 11,
-      "obs": "Desactivar nodo cámaras en grafo"
+      "obs": "Desactivar nodo cÃ¡maras en grafo"
     },
     {
       "name": "REENCAFE BODEGA",
@@ -66,11 +66,11 @@
     },
     {
       "name": "LADRILLERA SANTA FE",
-      "cat": "Construcción",
+      "cat": "ConstrucciÃ³n",
       "comps": 0,
       "graph": "PENDIENTE",
       "conns": 0,
-      "obs": "Falta agregar nodo de cámaras en grafo"
+      "obs": "Falta agregar nodo de cÃ¡maras en grafo"
     },
     {
       "name": "ENTEL",
@@ -124,12 +124,12 @@
   "notes": {
     "0": [
       {
-        "text": "Seguimiento en creación de relaciones",
+        "text": "Seguimiento en creaciÃ³n de relaciones",
         "ts": "24 de may de 2026 10:18 a. m."
       }
     ]
   },
   "components": {},
-  "lastSync": "2026-05-24T15:18:57.687Z",
+  "lastSync": "2026-05-24T15:19:50.916Z",
   "filesIndex": {}
 }
