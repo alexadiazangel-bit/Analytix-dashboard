@@ -1,0 +1,155 @@
+{
+  "lastSync": "",
+  "clientes": [
+    {
+      "id": 1,
+      "cliente": "GBC",
+      "componente": 13,
+      "conexionesPrimarias": 11,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "GRAFO Relaciones Desactiva la opcion de agregar el nodo de las cámaras",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 2,
+      "cliente": "NUTRESA",
+      "componente": 46,
+      "conexionesPrimarias": 22,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 3,
+      "cliente": "STERIGENICS",
+      "componente": 9,
+      "conexionesPrimarias": 3,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 4,
+      "cliente": "CLARO",
+      "componente": 5136,
+      "conexionesPrimarias": 1673,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "Se sigue en la actividad",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 5,
+      "cliente": "COLVISEG",
+      "componente": 7,
+      "conexionesPrimarias": 6,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "GRAFO Relaciones Desactiva la opcion de agregar el nodo Servidor Lenovo 2 y Lenovo 3",
+      "actualizaciones": "Relaciones creadas en el servidor 1 y NVR",
+      "notas": []
+    },
+    {
+      "id": 6,
+      "cliente": "REENCAFE EL POLLO",
+      "componente": 3,
+      "conexionesPrimarias": 2,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "GRAFO Relaciones Falta agregar componentes NVR.Gateway",
+      "actualizaciones": "Se crean las relaciones de los NVR",
+      "notas": []
+    },
+    {
+      "id": 7,
+      "cliente": "REENCAFE BODEGA NEXOS",
+      "componente": 3,
+      "conexionesPrimarias": 0,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "GRAFO Relaciones Falta agregar componentes NVR.Gateway",
+      "actualizaciones": "Se crean las relaciones de los NVR",
+      "notas": []
+    },
+    {
+      "id": 8,
+      "cliente": "CANNON ALARMA",
+      "componente": 9,
+      "conexionesPrimarias": 6,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "Grafo Relaciones Falta agregar el nodo las cámaras",
+      "actualizaciones": "Se crean las relaciones de los NVR",
+      "notas": []
+    },
+    {
+      "id": 9,
+      "cliente": "CANNON-LORAWAN SENSORES",
+      "componente": 5,
+      "conexionesPrimarias": 3,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 10,
+      "cliente": "GIMNASIO",
+      "componente": 5,
+      "conexionesPrimarias": 6,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 11,
+      "cliente": "GECOLSA",
+      "componente": 576,
+      "conexionesPrimarias": 33,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 12,
+      "cliente": "TITAN PLAZA",
+      "componente": 16,
+      "conexionesPrimarias": 10,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 13,
+      "cliente": "ENTEL",
+      "componente": 323,
+      "conexionesPrimarias": 133,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "Grafo Relaciones Falta agregar el nodo las variables",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 14,
+      "cliente": "NISSAN COLVISEG",
+      "componente": 1348,
+      "conexionesPrimarias": 1354,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "GRAFO Relaciones Falta agregar el nodo de las cámaras",
+      "actualizaciones": "",
+      "notas": []
+    },
+    {
+      "id": 15,
+      "cliente": "LADRILLERA SANTA FE",
+      "componente": 62,
+      "conexionesPrimarias": 65,
+      "grafoRelaciones": "PENDIENTE",
+      "observaciones": "GRAFO Relaciones Falta agregar el nodo de las cámaras",
+      "actualizaciones": "",
+      "notas": []
+    }
+  ]
+}
