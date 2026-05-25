@@ -1,5 +1,4 @@
 {
-  "lastSync": "",
   "clientes": [
     {
       "id": 1,
@@ -7,7 +6,7 @@
       "componente": 13,
       "conexionesPrimarias": 11,
       "grafoRelaciones": "PENDIENTE",
-      "observaciones": "GRAFO Relaciones Desactiva la opcion de agregar el nodo de las cámaras",
+      "observaciones": "GRAFO Relaciones Desactiva la opcion de agregar el nodo de las cÃ¡maras",
       "actualizaciones": "",
       "notas": []
     },
@@ -77,7 +76,7 @@
       "componente": 9,
       "conexionesPrimarias": 6,
       "grafoRelaciones": "PENDIENTE",
-      "observaciones": "Grafo Relaciones Falta agregar el nodo las cámaras",
+      "observaciones": "Grafo Relaciones Falta agregar el nodo las cÃ¡maras",
       "actualizaciones": "Se crean las relaciones de los NVR",
       "notas": []
     },
@@ -137,7 +136,7 @@
       "componente": 1348,
       "conexionesPrimarias": 1354,
       "grafoRelaciones": "PENDIENTE",
-      "observaciones": "GRAFO Relaciones Falta agregar el nodo de las cámaras",
+      "observaciones": "GRAFO Relaciones Falta agregar el nodo de las cÃ¡maras",
       "actualizaciones": "",
       "notas": []
     },
@@ -147,9 +146,20 @@
       "componente": 62,
       "conexionesPrimarias": 65,
       "grafoRelaciones": "PENDIENTE",
-      "observaciones": "GRAFO Relaciones Falta agregar el nodo de las cámaras",
+      "observaciones": "GRAFO Relaciones Falta agregar el nodo de las cÃ¡maras",
       "actualizaciones": "",
       "notas": []
+    },
+    {
+      "id": 16,
+      "notas": [],
+      "cliente": "prueba",
+      "componente": 10,
+      "conexionesPrimarias": 5,
+      "grafoRelaciones": "OK",
+      "observaciones": "",
+      "actualizaciones": "ok"
     }
-  ]
+  ],
+  "lastSync": "2026-05-25T17:11:33.847Z"
 }
