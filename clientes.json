@@ -151,16 +151,6 @@
       "notas": []
     },
     {
-      "id": 16,
-      "notas": [],
-      "cliente": "prueba",
-      "componente": 1,
-      "conexionesPrimarias": -2,
-      "grafoRelaciones": "OK",
-      "observaciones": "",
-      "actualizaciones": ""
-    },
-    {
       "id": 18,
       "notas": [],
       "cliente": "test",
@@ -171,5 +161,5 @@
       "actualizaciones": ""
     }
   ],
-  "lastSync": "2026-05-25T19:35:31.052Z"
+  "lastSync": "2026-05-25T19:35:36.102Z"
 }
