@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytix.2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3348;
+    --text: #e2e8f0;
+    --muted: #6b7280;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --blue: #3b82f6;
+    --blue-btn: #2563eb;
+    --accent: #4f6ef7;
+    --font: 'Courier New', 'Consolas', monospace;
+  }
+
+  html[data-theme="light"] {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --surface2: #f0f2f5;
+    --border: #e1e4e8;
+    --text: #0d1117;
+    --muted: #57606a;
+    --green: #1a7f37;
+    --red: #d1242f;
+    --orange: #bf8700;
+    --blue: #0969da;
+    --blue-btn: #1f6feb;
+    --accent: #5b7edb;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 13px;
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text);
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sync-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--green);
+  }
+  .sync-dot::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+  .nav-icon {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: color .2s, background .2s;
+  }
+  .nav-icon:hover { color: var(--text); background: var(--surface2); }
+
+  .btn-new {
+    background: var(--blue-btn);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-family: var(--font);
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .2s;
+  }
+  .btn-new:hover { background: #1d4ed8; }
+
+  main { padding: 24px; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .kpi-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .kpi-value.green { color: var(--green); }
+  .kpi-value.red   { color: var(--red);   }
+  .kpi-value.white { color: var(--text);  }
+  .kpi-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-dl {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-family: var(--font);
+    font-size: 11px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-dl:hover { border-color: var(--accent); background: var(--surface2); }
+
+  .search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+  }
+  .search-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 12px 9px 38px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 12px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--muted); }
+
+  .filter-select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 9px 32px 9px 12px;
+    font-family: var(--font);
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color .2s;
+  }
+  .filter-select:focus { border-color: var(--accent); }
+
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    background: var(--surface2);
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  thead th:first-child { width: 40px; text-align: center; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+
+  td {
+    padding: 12px 14px;
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  td:first-child { text-align: center; color: var(--muted); font-size: 11px; }
+
+  .client-name {
+    font-weight: 700;
+    letter-spacing: .5px;
+    font-size: 13px;
+  }
+
+  .num { font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .badge.ok       { background: rgba(34,197,94,.15);  color: var(--green); border: 1px solid rgba(34,197,94,.3); }
+  .badge.pending  { background: rgba(249,115,22,.15); color: var(--orange); border: 1px solid rgba(249,115,22,.3); }
+
+  .cctv-wrap { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .cctv-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .cctv-tag .val { color: var(--text); font-weight: 700; }
+  .cctv-empty { color: var(--muted); font-size: 11px; }
+
+  .actions { display: flex; gap: 8px; align-items: center; }
+  .act-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color .2s, background .2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  .act-btn:hover { color: var(--text); background: var(--border); }
+  .act-btn.del:hover { color: var(--red); }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 520px;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px;
+    position: relative;
+  }
+
+  .modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: .5px;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color .2s;
+  }
+  .modal-close:hover { color: var(--text); }
+
+  .field-group { margin-bottom: 18px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+
+  .field-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+
+  .field-input, .field-select, .field-textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 12px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 12px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: var(--accent); }
+  .field-select { appearance: none; cursor: pointer; }
+  .field-textarea { resize: vertical; min-height: 70px; }
+
+  .cctv-section {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+    background: var(--bg);
+  }
+  .cctv-section-title {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .cctv-fields { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .btn-cancel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 9px 20px;
+    font-family: var(--font);
+    font-size: 12px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-cancel:hover { background: var(--border); }
+
+  .btn-save {
+    background: var(--blue-btn);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 24px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-save:hover { background: #1d4ed8; }
+
+  .notas-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .notas-cliente-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .5px;
+  }
+  .notas-current {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 16px;
+    min-height: 60px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .notas-current.has-text { color: var(--text); }
+  .notas-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+  .notas-char-count {
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--surface2);
+    border: 1px solid var(--green);
+    color: var(--green);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 12px;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .toolbar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Analytix<span>.</span>2026</div>
+  <div class="nav-right">
+    <div class="sync-dot" id="syncTime">Sync OK --:-- a. m.</div>
+    <button class="nav-icon" title="Refrescar" onclick="refreshSync()">⟳</button>
+    <button class="nav-icon" title="Tema día/noche" onclick="toggleTheme()" id="themeBtn">☽</button>
+    <button class="nav-icon" title="GitHub Sync" onclick="openGitHubSettings()">⚙</button>
+    <button class="btn-new" onclick="openModal(null)">+ Nuevo cliente</button>
+  </div>
+</nav>
+
+<main>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total clientes</div>
+      <div class="kpi-value white" id="kpiTotal">—</div>
+      <div class="kpi-sub">Registros activos</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Grafo OK</div>
+      <div class="kpi-value green" id="kpiOk">—</div>
+      <div class="kpi-sub" id="kpiOkPct">—% del total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Pendientes</div>
+      <div class="kpi-value red" id="kpiPending">—</div>
+      <div class="kpi-sub" id="kpiPendPct">—% del total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Total componentes</div>
+      <div class="kpi-value white" id="kpiComp">—</div>
+      <div class="kpi-sub">Suma acumulada</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn-dl" onclick="downloadJSON()">⬇ Descargar JSON</button>
+    <button class="btn-dl" onclick="downloadCSV()">⬇ Descargar CSV</button>
+    <button class="btn-dl" onclick="downloadXLSX()">⬇ Descargar XLSX</button>
+  </div>
+
+  <div class="search-row">
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Buscar cliente…" id="searchInput" oninput="renderTable()" autocomplete="off" defaultValue="" value="">
+    </div>
+    <select class="filter-select" id="filterSelect" onchange="renderTable()">
+      <option value="">Todos los estados</option>
+      <option value="OK">OK</option>
+      <option value="PENDIENTE">Pendiente</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cliente</th>
+          <th>Componentes</th>
+          <th>Conexiones</th>
+          <th>Grafo</th>
+          <th>CCTV</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</main>
+
+<!-- MODAL EDITAR CLIENTE -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="modalTitle">Nuevo cliente</div>
+
+    <div class="field-group">
+      <label class="field-label">Cliente</label>
+      <input class="field-input" id="fCliente" type="text" placeholder="Nombre del cliente">
+    </div>
+
+    <div class="field-row">
+      <div>
+        <label class="field-label">Componentes</label>
+        <input class="field-input" id="fComponentes" type="number" placeholder="0">
+      </div>
+      <div>
+        <label class="field-label">Conexiones primarias</label>
+        <input class="field-input" id="fConexiones" type="number" placeholder="0">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Grafo relaciones</label>
+      <select class="field-select" id="fGrafo">
+        <option value="OK">OK</option>
+        <option value="PENDIENTE">PENDIENTE</option>
+      </select>
+    </div>
+
+    <div class="cctv-section">
+      <div class="cctv-section-title">📷 CCTV</div>
+      <div class="cctv-fields">
+        <div>
+          <label class="field-label">NVR</label>
+          <input class="field-input" id="fNVR" type="number" placeholder="—">
+        </div>
+        <div>
+          <label class="field-label">DVR</label>
+          <input class="field-input" id="fDVR" type="number" placeholder="—">
+        </div>
+        <div>
+          <label class="field-label">Cámaras</label>
+          <input class="field-input" id="fCAM" type="number" placeholder="—">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveClient()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTAS MODAL -->
+<div class="modal-overlay" id="notasModalOverlay">
+  <div class="modal" style="width:460px;">
+    <button class="modal-close" onclick="closeNotasModal()">✕</button>
+    <div class="modal-title">📋 Nota de actualización</div>
+
+    <div class="notas-header">
+      <span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;">Cliente:</span>
+      <span class="notas-cliente-tag" id="notasClienteTag">—</span>
+    </div>
+
+    <div class="field-group">
+      <div class="notas-label-row">
+        <label class="field-label" style="margin-bottom:0;">Nueva nota</label>
+        <span class="notas-char-count" id="notasCharCount">0 / 300</span>
+      </div>
+      <textarea class="field-textarea" id="fNotas" placeholder="Escribe una nota de actualización…" maxlength="300"
+        oninput="document.getElementById('notasCharCount').textContent = this.value.length + ' / 300'"
+        style="min-height:100px;"></textarea>
+    </div>
+
+    <div class="field-group" id="notasCurrentGroup">
+      <label class="field-label">Nota guardada actualmente</label>
+      <div class="notas-current" id="notasCurrentText">Sin notas.</div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="openNotasHistorial(notasIdx)" id="btnHistorialNota" style="display:none;">📜 Ver historial</button>
+      <button class="btn-cancel" onclick="clearNota()" id="btnClearNota" style="color:var(--red);border-color:var(--red);">🗑 Borrar nota</button>
+      <button class="btn-cancel" onclick="closeNotasModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveNota()">Guardar nota</button>
+    </div>
+  </div>
+</div>
+
+<!-- GITHUB SYNC MODAL -->
+<div class="modal-overlay" id="githubModalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeGitHubSettings()">✕</button>
+    <div class="modal-title">⚙ GitHub Sync - Configuración</div>
+
+    <div class="field-group">
+      <label class="field-label">Repositorio URL</label>
+      <input class="field-input" id="fGhRepo" type="text" placeholder="https://github.com/usuario/repo">
+    </div>
+
+    <div class="field-row">
+      <div>
+        <label class="field-label">Usuario GitHub</label>
+        <input class="field-input" id="fGhUser" type="text" placeholder="usuario">
+      </div>
+      <div>
+        <label class="field-label">Personal Access Token</label>
+        <input class="field-input" id="fGhToken" type="password" placeholder="ghp_xxxxxxxxxxxx">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div>
+        <label class="field-label">Branch</label>
+        <input class="field-input" id="fGhBranch" type="text" placeholder="main" value="main">
+      </div>
+      <div>
+        <label class="field-label">Archivo JSON</label>
+        <input class="field-input" id="fGhFile" type="text" placeholder="data/clients.json" value="data/clients.json">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="testGitHubConnection()">Probar conexión</button>
+      <button class="btn-cancel" onclick="closeGitHubSettings()">Cancelar</button>
+      <button class="btn-save" onclick="saveGitHubSettings()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const defaultClients = [
+  { id:1,  cliente:"GBC",                   componentes:13,   conexiones:11,   grafo:"PENDIENTE", nvr:1, dvr:1, cam:null, actualizaciones:"" },
+  { id:2,  cliente:"NUTRESA",               componentes:46,   conexiones:22,   grafo:"OK",        nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:3,  cliente:"STERIGENICS",           componentes:9,    conexiones:3,    grafo:"OK",        nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:4,  cliente:"CLARO",                 componentes:5136, conexiones:1673, grafo:"PENDIENTE", nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:5,  cliente:"COLVISEG",              componentes:7,    conexiones:6,    grafo:"PENDIENTE", nvr:1, dvr:null, cam:null, actualizaciones:"Relaciones creadas en el servidor 1 y NVR" },
+  { id:6,  cliente:"REENCAFE EL POLLO",     componentes:3,    conexiones:2,    grafo:"PENDIENTE", nvr:null, dvr:null, cam:null, actualizaciones:"Se crean las relaciones de los NVR" },
+  { id:7,  cliente:"REENCAFE BODEGA NEXOS", componentes:3,    conexiones:null, grafo:"PENDIENTE", nvr:null, dvr:null, cam:null, actualizaciones:"Se crean las relaciones de los NVR" },
+  { id:8,  cliente:"CANNON ALARMA",         componentes:9,    conexiones:6,    grafo:"PENDIENTE", nvr:null, dvr:null, cam:null, actualizaciones:"Se crean las relaciones de los NVR" },
+  { id:9,  cliente:"CANNON-LORAWAN SENSORES",componentes:5,   conexiones:3,    grafo:"OK",        nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:10, cliente:"GIMNASIO",              componentes:5,    conexiones:6,    grafo:"OK",        nvr:null, dvr:1, cam:null, actualizaciones:"" },
+  { id:11, cliente:"GECOLSA",               componentes:576,  conexiones:33,   grafo:"OK",        nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:12, cliente:"TITAN PLAZA",           componentes:16,   conexiones:10,   grafo:"OK",        nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:13, cliente:"ENTEL",                 componentes:323,  conexiones:133,  grafo:"PENDIENTE", nvr:null, dvr:null, cam:null, actualizaciones:"" },
+  { id:14, cliente:"NISSAN COLVISEG",       componentes:1348, conexiones:1354, grafo:"PENDIENTE", nvr:132, dvr:null, cam:null, actualizaciones:"" },
+  { id:15, cliente:"LADRILLERA SANTA FE",   componentes:62,   conexiones:65,   grafo:"PENDIENTE", nvr:25, dvr:1, cam:null, actualizaciones:"" },
+  { id:16, cliente:"GECOLSA CCTV",          componentes:8,    conexiones:8,    grafo:"OK",        nvr:null, dvr:null, cam:null, actualizaciones:"" },
+];
+
+let clients = [];
+let editIdx = null;
+let notasIdx = null;
+
+function loadClients() {
+  const saved = localStorage.getItem('analytixClients');
+  if (saved) {
+    clients = JSON.parse(saved);
+  } else {
+    clients = JSON.parse(JSON.stringify(defaultClients));
+    saveClients();
+  }
+}
+
+function saveClients() {
+  localStorage.setItem('analytixClients', JSON.stringify(clients));
+}
+
+function clearSearchInput() {
+  const searchInput = document.getElementById('searchInput');
+  const filterSelect = document.getElementById('filterSelect');
+  
+  // Método 1: Limpiar value
+  searchInput.value = '';
+  filterSelect.value = '';
+  
+  // Método 2: Limpiar atributos
+  searchInput.setAttribute('value', '');
+  searchInput.defaultValue = '';
+  
+  // Método 3: Disparar eventos
+  searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+function updateKPI() {
+  const total = clients.length;
+  const okC   = clients.filter(c => c.grafo === 'OK').length;
+  const pend  = total - okC;
+  const comp  = clients.reduce((a,c) => a + (c.componentes||0), 0);
+  document.getElementById('kpiTotal').textContent   = total;
+  document.getElementById('kpiOk').textContent      = okC;
+  document.getElementById('kpiOkPct').textContent   = Math.round(okC/total*100) + '% del total';
+  document.getElementById('kpiPending').textContent = pend;
+  document.getElementById('kpiPendPct').textContent = Math.round(pend/total*100) + '% del total';
+  document.getElementById('kpiComp').textContent    = comp.toLocaleString('es').replace(',','.');
+}
+
+function renderTable() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filter = document.getElementById('filterSelect').value;
+  const tbody = document.getElementById('tableBody');
+  let html = '';
+  clients.forEach((c, idx) => {
+    const matchQ = !q || c.cliente.toLowerCase().includes(q);
+    const matchF = !filter || c.grafo.toUpperCase().includes(filter.toUpperCase());
+    if (!matchQ || !matchF) return;
+    const grafoNorm = c.grafo.toUpperCase().includes('OK') ? 'OK' : 'PENDIENTE';
+    const badgeClass = grafoNorm === 'OK' ? 'ok' : 'pending';
+    let cctvHtml = '';
+    if (!c.nvr && !c.dvr && !c.cam) {
+      cctvHtml = '<span class="cctv-empty">—</span>';
+    } else {
+      cctvHtml = '<div class="cctv-wrap">';
+      if (c.nvr) cctvHtml += `<span class="cctv-tag nvr">NVR <span class="val">${c.nvr}</span></span>`;
+      if (c.dvr) cctvHtml += `<span class="cctv-tag dvr">DVR <span class="val">${c.dvr}</span></span>`;
+      if (c.cam) cctvHtml += `<span class="cctv-tag cam">CAM <span class="val">${c.cam}</span></span>`;
+      cctvHtml += '</div>';
+    }
+    html += `<tr><td>${idx+1}</td><td><span class="client-name">${c.cliente}</span></td><td class="num">${c.componentes != null ? c.componentes.toLocaleString('es') : '—'}</td><td class="num">${c.conexiones != null ? c.conexiones.toLocaleString('es') : '—'}</td><td><span class="badge ${badgeClass}">${grafoNorm}</span></td><td>${cctvHtml}</td><td><div class="actions"><button class="act-btn" onclick="openModal(${idx})" title="Editar">✎</button><button class="act-btn" onclick="openNotasModal(${idx})" title="Ver notas">${c.actualizaciones ? '📝' : '📋'}</button><button class="act-btn del" onclick="deleteClient(${idx})" title="Eliminar">🗑</button></div></td></tr>`;
+  });
+  tbody.innerHTML = html;
+}
+
+function openModal(idx) {
+  editIdx = idx;
+  const c = idx !== null ? clients[idx] : null;
+  document.getElementById('modalTitle').textContent = c ? 'Editar cliente' : 'Nuevo cliente';
+  document.getElementById('fCliente').value = c?.cliente || '';
+  document.getElementById('fComponentes').value = c?.componentes ?? '';
+  document.getElementById('fConexiones').value = c?.conexiones ?? '';
+  document.getElementById('fGrafo').value = c?.grafo === 'OK' ? 'OK' : 'PENDIENTE';
+  document.getElementById('fNVR').value = c?.nvr ?? '';
+  document.getElementById('fDVR').value = c?.dvr ?? '';
+  document.getElementById('fCAM').value = c?.cam ?? '';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  editIdx = null;
+}
+
+function saveClient() {
+  const data = {
+    cliente: document.getElementById('fCliente').value.trim().toUpperCase(),
+    componentes: parseNum(document.getElementById('fComponentes').value),
+    conexiones: parseNum(document.getElementById('fConexiones').value),
+    grafo: document.getElementById('fGrafo').value,
+    nvr: parseNum(document.getElementById('fNVR').value),
+    dvr: parseNum(document.getElementById('fDVR').value),
+    cam: parseNum(document.getElementById('fCAM').value),
+    actualizaciones: editIdx !== null ? clients[editIdx].actualizaciones : "",
+  };
+  if (!data.cliente) { alert('El nombre del cliente es obligatorio.'); return; }
+  if (editIdx !== null) {
+    clients[editIdx] = { ...clients[editIdx], ...data };
+    showToast('Cliente actualizado ✓');
+  } else {
+    data.id = clients.length ? Math.max(...clients.map(c=>c.id)) + 1 : 1;
+    clients.push(data);
+    showToast('Cliente creado ✓');
+  }
+  saveClients();
+  closeModal();
+  updateKPI();
+  renderTable();
+}
+
+function deleteClient(idx) {
+  if (!confirm(`¿Eliminar "${clients[idx].cliente}"?`)) return;
+  clients.splice(idx, 1);
+  saveClients();
+  updateKPI();
+  renderTable();
+  showToast('Cliente eliminado');
+}
+
+function parseNum(v) {
+  const n = parseFloat(v);
+  return isNaN(n) ? null : n;
+}
+
+function openNotasModal(idx) {
+  notasIdx = idx;
+  const c = clients[idx];
+  document.getElementById('notasClienteTag').textContent = c.cliente;
+  document.getElementById('fNotas').value = '';
+  document.getElementById('notasCharCount').textContent = '0 / 300';
+  const current = c.actualizaciones || '';
+  const currentEl = document.getElementById('notasCurrentText');
+  currentEl.textContent = current || 'Sin notas.';
+  currentEl.className = 'notas-current' + (current ? ' has-text' : '');
+  document.getElementById('btnClearNota').style.display = current ? 'inline-block' : 'none';
+  
+  // Mostrar botón de historial si hay notas antiguas
+  const historial = c.historialNotas || [];
+  const btnHistorial = document.getElementById('btnHistorialNota');
+  if (btnHistorial) {
+    btnHistorial.style.display = historial.length > 0 ? 'inline-block' : 'none';
+  }
+  
+  document.getElementById('notasModalOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('fNotas').focus(), 100);
+}
+
+function openNotasHistorial(idx) {
+  const c = clients[idx];
+  const historial = c.historialNotas || [];
+  
+  if (historial.length === 0) {
+    showToast('⚠ No hay historial de notas');
+    return;
+  }
+  
+  let html = '<div style="max-height:400px;overflow-y:auto;">';
+  historial.forEach((nota, i) => {
+    const estado = nota.estado === 'ELIMINADA' ? ' <span style="color:var(--red);">[ELIMINADA]</span>' : '';
+    html += `<div style="margin-bottom:12px;padding:10px;background:var(--surface2);border-radius:6px;border-left:3px solid var(--accent);">
+      <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">📅 ${nota.fecha}${estado}</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;">${nota.contenido}</div>
+    </div>`;
+  });
+  html += '</div>';
+  
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay open';
+  modal.id = 'historialModal';
+  modal.style.display = 'flex';
+  modal.innerHTML = `<div class="modal" style="width:520px;">
+    <button class="modal-close" onclick="document.getElementById('historialModal').remove()">✕</button>
+    <div class="modal-title">📜 Historial de Notas - ${c.cliente}</div>
+    ${html}
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="document.getElementById('historialModal').remove()">Cerrar</button>
+    </div>
+  </div>`;
+  
+  document.body.appendChild(modal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) this.remove();
+  });
+}
+
+function closeNotasModal() {
+  document.getElementById('notasModalOverlay').classList.remove('open');
+  notasIdx = null;
+}
+
+function saveNota() {
+  const nota = document.getElementById('fNotas').value.trim();
+  if (!nota) { showToast('⚠ Escribe una nota antes de guardar'); return; }
+  
+  // Agregar a historial (guardar todas las notas)
+  const currentNota = clients[notasIdx].actualizaciones || '';
+  let historial = clients[notasIdx].historialNotas || [];
+  
+  if (currentNota) {
+    historial.push({ fecha: new Date().toLocaleString('es'), contenido: currentNota });
+  }
+  
+  clients[notasIdx].actualizaciones = nota;
+  clients[notasIdx].historialNotas = historial;
+  
+  saveClients();
+  updateKPI();
+  renderTable();
+  closeNotasModal();
+  showToast('Nota guardada ✓');
+}
+
+function clearNota() {
+  if (!confirm('¿Eliminar la nota actual de este cliente?')) return;
+  
+  // Guardar en historial antes de eliminar
+  const currentNota = clients[notasIdx].actualizaciones || '';
+  if (currentNota) {
+    let historial = clients[notasIdx].historialNotas || [];
+    historial.push({ fecha: new Date().toLocaleString('es'), contenido: currentNota, estado: 'ELIMINADA' });
+    clients[notasIdx].historialNotas = historial;
+  }
+  
+  clients[notasIdx].actualizaciones = '';
+  saveClients();
+  updateKPI();
+  renderTable();
+  closeNotasModal();
+  showToast('Nota eliminada');
+}
+
+function openGitHubSettings() {
+  const saved = JSON.parse(localStorage.getItem('githubConfig') || '{}');
+  document.getElementById('fGhRepo').value = saved.repo || '';
+  document.getElementById('fGhUser').value = saved.user || '';
+  document.getElementById('fGhToken').value = saved.token || '';
+  document.getElementById('fGhBranch').value = saved.branch || 'main';
+  document.getElementById('fGhFile').value = saved.file || 'data/clients.json';
+  document.getElementById('githubModalOverlay').classList.add('open');
+}
+
+function closeGitHubSettings() {
+  document.getElementById('githubModalOverlay').classList.remove('open');
+}
+
+function saveGitHubSettings() {
+  const config = {
+    repo: document.getElementById('fGhRepo').value.trim(),
+    user: document.getElementById('fGhUser').value.trim(),
+    token: document.getElementById('fGhToken').value.trim(),
+    branch: document.getElementById('fGhBranch').value.trim() || 'main',
+    file: document.getElementById('fGhFile').value.trim() || 'data/clients.json',
+  };
+  if (!config.repo || !config.user || !config.token) {
+    showToast('⚠ Completa todos los campos requeridos');
+    return;
+  }
+  localStorage.setItem('githubConfig', JSON.stringify(config));
+  closeGitHubSettings();
+  showToast('Configuración GitHub guardada ✓');
+}
+
+async function testGitHubConnection() {
+  const config = {
+    repo: document.getElementById('fGhRepo').value.trim(),
+    user: document.getElementById('fGhUser').value.trim(),
+    token: document.getElementById('fGhToken').value.trim(),
+  };
+  if (!config.repo || !config.user || !config.token) {
+    showToast('⚠ Completa usuario, token y repositorio');
+    return;
+  }
+  showToast('Probando conexión...');
+  try {
+    const response = await fetch('https://api.github.com/user', {
+      headers: {
+        'Authorization': `token ${config.token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    if (response.ok) {
+      const user = await response.json();
+      showToast(`✓ Conectado como ${user.login}`);
+    } else {
+      showToast('✗ Credenciales inválidas');
+    }
+  } catch (e) {
+    showToast('✗ Error de conexión');
+  }
+}
+
+function downloadJSON() {
+  const blob = new Blob([JSON.stringify(clients, null, 2)], { type: 'application/json' });
+  triggerDL(blob, 'Analytix_2026.json');
+}
+
+function downloadCSV() {
+  const headers = ['CLIENTE','COMPONENTES','CONEXIONES PRIMARIAS','GRAFO RELACIONES','NVR','DVR','CAMARAS','ACTUALIZACIONES'];
+  const rows = clients.map(c => [c.cliente, c.componentes??'', c.conexiones??'', c.grafo, c.nvr??'', c.dvr??'', c.cam??'', c.actualizaciones].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8' });
+  triggerDL(blob, 'Analytix_2026.csv');
+}
+
+function downloadXLSX() {
+  const headers = ['CLIENTE','COMPONENTES','CONEXIONES PRIMARIAS','GRAFO RELACIONES','NVR','DVR','CAMARAS','ACTUALIZACIONES'];
+  const rows = clients.map(c => [c.cliente, c.componentes??'', c.conexiones??'', c.grafo, c.nvr??'', c.dvr??'', c.cam??'', c.actualizaciones].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8' });
+  triggerDL(blob, 'Analytix_2026.xlsx');
+  showToast('XLSX descargado como CSV compatible ✓');
+}
+
+function triggerDL(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement('a'), { href: url, download: name });
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast(name + ' descargado ✓');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function refreshSync() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const ampm = now.getHours() >= 12 ? 'p. m.' : 'a. m.';
+  document.getElementById('syncTime').textContent = `Sync OK ${h}:${m} ${ampm}`;
+  showToast('Sincronizado ✓');
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme') || 'dark';
+  const newTheme = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  document.getElementById('themeBtn').textContent = newTheme === 'dark' ? '☽' : '☀';
+  showToast(`Tema ${newTheme === 'dark' ? 'oscuro' : 'claro'} ✓`);
+}
+
+function loadTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themeBtn').textContent = saved === 'dark' ? '☽' : '☀';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.getElementById('notasModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeNotasModal();
+});
+
+document.getElementById('githubModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeGitHubSettings();
+});
+
+loadTheme();
+loadClients();
+clearSearchInput();
+refreshSync();
+updateKPI();
+renderTable();
+
+// Double-check cleanup después de que el DOM esté completamente listo
+setTimeout(() => {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput.value !== '') {
+    searchInput.value = '';
+    renderTable();
+  }
+}, 100);
+</script>
+</body>
+</html>
