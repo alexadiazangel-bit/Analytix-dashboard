@@ -1,1 +1,178 @@
-[]
+[
+  {
+    "id": 1,
+    "cliente": "GBC",
+    "componentes": 13,
+    "conexiones": 11,
+    "grafo": "PENDIENTE",
+    "nvr": 1,
+    "dvr": 1,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 2,
+    "cliente": "NUTRESA",
+    "componentes": 46,
+    "conexiones": 22,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 3,
+    "cliente": "STERIGENICS",
+    "componentes": 9,
+    "conexiones": 3,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 4,
+    "cliente": "CLARO",
+    "componentes": 5136,
+    "conexiones": 1673,
+    "grafo": "PENDIENTE",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 5,
+    "cliente": "COLVISEG",
+    "componentes": 7,
+    "conexiones": 6,
+    "grafo": "PENDIENTE",
+    "nvr": 1,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": "Relaciones creadas en el servidor 1 y NVR"
+  },
+  {
+    "id": 6,
+    "cliente": "REENCAFE EL POLLO",
+    "componentes": 3,
+    "conexiones": 2,
+    "grafo": "PENDIENTE",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": "Se crean las relaciones de los NVR"
+  },
+  {
+    "id": 7,
+    "cliente": "REENCAFE BODEGA NEXOS",
+    "componentes": 3,
+    "conexiones": null,
+    "grafo": "PENDIENTE",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": "Se crean las relaciones de los NVR"
+  },
+  {
+    "id": 8,
+    "cliente": "CANNON ALARMA",
+    "componentes": 9,
+    "conexiones": 6,
+    "grafo": "PENDIENTE",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": "Se crean las relaciones de los NVR"
+  },
+  {
+    "id": 9,
+    "cliente": "CANNON-LORAWAN SENSORES",
+    "componentes": 5,
+    "conexiones": 3,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 10,
+    "cliente": "GIMNASIO",
+    "componentes": 5,
+    "conexiones": 6,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": 1,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 11,
+    "cliente": "GECOLSA",
+    "componentes": 576,
+    "conexiones": 33,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 12,
+    "cliente": "TITAN PLAZA",
+    "componentes": 16,
+    "conexiones": 10,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 13,
+    "cliente": "ENTEL",
+    "componentes": 323,
+    "conexiones": 133,
+    "grafo": "PENDIENTE",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 14,
+    "cliente": "NISSAN COLVISEG",
+    "componentes": 1348,
+    "conexiones": 1354,
+    "grafo": "PENDIENTE",
+    "nvr": 132,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 15,
+    "cliente": "LADRILLERA SANTA FE",
+    "componentes": 62,
+    "conexiones": 65,
+    "grafo": "PENDIENTE",
+    "nvr": 25,
+    "dvr": 1,
+    "cam": null,
+    "actualizaciones": ""
+  },
+  {
+    "id": 16,
+    "cliente": "GECOLSA CCTV",
+    "componentes": 8,
+    "conexiones": 8,
+    "grafo": "OK",
+    "nvr": null,
+    "dvr": null,
+    "cam": null,
+    "actualizaciones": ""
+  }
+]
