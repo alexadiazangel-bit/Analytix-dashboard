@@ -2,90 +2,126 @@
   {
     "id": 1,
     "cliente": "GBC",
-    "componentes": 13,
+    "componentes": 11,
     "conexiones": 11,
-    "grafo": "PENDIENTE",
-    "nvr": 1,
+    "grafo": "OK",
+    "nvr": 3,
     "dvr": 1,
-    "cam": null,
-    "actualizaciones": ""
+    "cam": 1,
+    "actualizaciones": "",
+    "historialNotas": [
+      {
+        "fecha": "26/5/2026, 6:56:43 p. m.",
+        "texto": "Se creo el grafo"
+      },
+      {
+        "fecha": "27/5/2026, 11:29:44 a. m.",
+        "texto": "Componentes correctos"
+      },
+      {
+        "fecha": "12/6/2026, 18:10:53",
+        "estado": "ELIMINADA",
+        "contenido": "Relaciones ok"
+      }
+    ]
   },
   {
     "id": 2,
     "cliente": "NUTRESA",
-    "componentes": 46,
-    "conexiones": 22,
+    "componentes": 37,
+    "conexiones": 32,
     "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "",
+    "historialNotas": [
+      {
+        "fecha": "27/5/2026, 4:00:45 p. m.",
+        "texto": "En validaciones en Soporte Onboarding con el tema de componentes hijos y asociados"
+      },
+      {
+        "fecha": "28/5/2026, 3:11:47 p. m.",
+        "texto": "Se el tema del componente de procesador principal se creo ticket en plataforma de GGSDESK # 19 20/05/2026"
+      }
+    ]
   },
   {
     "id": 3,
     "cliente": "STERIGENICS",
-    "componentes": 9,
+    "componentes": 6,
     "conexiones": 3,
     "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "",
+    "historialNotas": []
   },
   {
     "id": 4,
     "cliente": "CLARO",
-    "componentes": 5136,
+    "componentes": 3703,
     "conexiones": 1673,
     "grafo": "PENDIENTE",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "",
+    "historialNotas": []
   },
   {
     "id": 5,
     "cliente": "COLVISEG",
     "componentes": 7,
     "conexiones": 6,
-    "grafo": "PENDIENTE",
-    "nvr": 1,
+    "grafo": "OK",
+    "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Relaciones creadas en el servidor 1 y NVR"
+    "actualizaciones": "Relaciones creadas en el servidor 1 y NVR",
+    "historialNotas": [
+      {
+        "fecha": "27/5/2026, 11:32:43 a. m.",
+        "texto": "Grafo de relaciones creado exitoso"
+      }
+    ]
   },
   {
     "id": 6,
     "cliente": "REENCAFE EL POLLO",
     "componentes": 3,
     "conexiones": 2,
-    "grafo": "PENDIENTE",
+    "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean las relaciones de los NVR"
+    "actualizaciones": "Se crean las relaciones de los NVR",
+    "historialNotas": []
   },
   {
     "id": 7,
     "cliente": "REENCAFE BODEGA NEXOS",
     "componentes": 3,
-    "conexiones": null,
-    "grafo": "PENDIENTE",
+    "conexiones": 2,
+    "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean las relaciones de los NVR"
+    "actualizaciones": "Se crean las relaciones de los NVR",
+    "historialNotas": []
   },
   {
     "id": 8,
     "cliente": "CANNON ALARMA",
     "componentes": 9,
     "conexiones": 6,
-    "grafo": "PENDIENTE",
+    "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean las relaciones de los NVR"
+    "actualizaciones": "Se crean las relaciones de los NVR",
+    "historialNotas": []
   },
   {
     "id": 9,
@@ -96,83 +132,136 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "Se creo relaciones",
+    "historialNotas": []
   },
   {
     "id": 10,
     "cliente": "GIMNASIO",
-    "componentes": 5,
+    "componentes": 7,
     "conexiones": 6,
     "grafo": "OK",
     "nvr": null,
-    "dvr": 1,
-    "cam": null,
-    "actualizaciones": ""
+    "dvr": null,
+    "cam": 1,
+    "actualizaciones": "Se creo relaciones",
+    "historialNotas": [
+      {
+        "fecha": "27/5/2026, 4:16:38 p. m.",
+        "texto": "Pendiente validar la asociación del componente procesador principal"
+      }
+    ]
   },
   {
     "id": 11,
     "cliente": "GECOLSA",
-    "componentes": 576,
-    "conexiones": 33,
+    "componentes": 44,
+    "conexiones": 34,
     "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "Se creo relaciones",
+    "historialNotas": [
+      {
+        "fecha": "28/5/2026, 2:32:35 p. m.",
+        "texto": "Se creo grafo de relaciones"
+      }
+    ]
   },
   {
     "id": 12,
     "cliente": "TITAN PLAZA",
-    "componentes": 16,
+    "componentes": 13,
     "conexiones": 10,
     "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "Se creo relaciones",
+    "historialNotas": [
+      {
+        "fecha": "28/5/2026, 2:42:26 p. m.",
+        "texto": "Pendiente revisar el tema de componentes asociados, procesador principal"
+      }
+    ]
   },
   {
     "id": 13,
     "cliente": "ENTEL",
-    "componentes": 323,
-    "conexiones": 133,
-    "grafo": "PENDIENTE",
+    "componentes": 209,
+    "conexiones": 191,
+    "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "",
+    "historialNotas": []
   },
   {
     "id": 14,
     "cliente": "NISSAN COLVISEG",
     "componentes": 1348,
     "conexiones": 1354,
-    "grafo": "PENDIENTE",
-    "nvr": 132,
-    "dvr": null,
-    "cam": null,
-    "actualizaciones": ""
-  },
-  {
-    "id": 15,
-    "cliente": "LADRILLERA SANTA FE",
-    "componentes": 62,
-    "conexiones": 65,
-    "grafo": "PENDIENTE",
-    "nvr": 25,
-    "dvr": 1,
-    "cam": null,
-    "actualizaciones": ""
-  },
-  {
-    "id": 16,
-    "cliente": "GECOLSA CCTV",
-    "componentes": 8,
-    "conexiones": 8,
     "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": ""
+    "actualizaciones": "Se creo relaciones",
+    "historialNotas": [
+      {
+        "fecha": "28/5/2026, 2:49:38 p. m.",
+        "texto": "Se maneja por el chat de Teams Soporte de Onboarding revisar el tema de conexiones primarias, se creo el 22 de mayo aun sin feedback"
+      },
+      {
+        "fecha": "4/6/2026, 5:25:36 p. m.",
+        "texto": "Se evidencia que son 134 DVR y NVR. Se continua con la creación de relaciones"
+      },
+      {
+        "fecha": "5/6/2026, 4:52:18 p. m.",
+        "texto": "Se continua con la actividad de la creación de grafo de relaciones falta 9 NVR."
+      },
+      {
+        "fecha": "9/6/2026, 2:11:04 p. m.",
+        "texto": "Se termina de creer el grafo de relaciones. Pendiente novedades por parte de Soporte Onboarding"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "cliente": "LADRILLERA SANTA FE",
+    "componentes": 63,
+    "conexiones": 66,
+    "grafo": "OK",
+    "nvr": 25,
+    "dvr": 1,
+    "cam": null,
+    "actualizaciones": "Se agrega CCTV al dashboard",
+    "historialNotas": [
+      {
+        "fecha": "28/5/2026, 2:41:41 p. m.",
+        "texto": "Ladrillera Usme desinstalado"
+      },
+      {
+        "fecha": "28/5/2026, 3:30:36 p. m.",
+        "texto": "Evidencias de grafo documento word \"Grafo de relaciones\""
+      },
+      {
+        "fecha": "28/5/2026, 4:27:37 p. m.",
+        "texto": "PLC Planta Arcillas 1 Eso aun no esta entregado esta en pruebas así que al momento no esta entregado Se pregunto directamente al Ing. Jonatan Romero"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "cliente": "PRUEBA",
+    "componentes": 10,
+    "conexiones": 5,
+    "grafo": "PENDIENTE",
+    "nvr": 4,
+    "dvr": 4,
+    "cam": 3,
+    "actualizaciones": "",
+    "historialNotas": []
   }
 ]
