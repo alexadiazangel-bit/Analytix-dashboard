@@ -268,5 +268,17 @@
         "contenido": "Nueva Prueba de nota"
       }
     ]
+  },
+  {
+    "id": 22,
+    "cliente": "PUNTO BLANCO",
+    "componentes": 5,
+    "conexiones": 1,
+    "grafo": "PENDIENTE",
+    "nvr": 4,
+    "dvr": 2,
+    "cam": 1,
+    "actualizaciones": "",
+    "historialNotas": []
   }
 ]
