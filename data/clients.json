@@ -278,19 +278,15 @@
     "nvr": 4,
     "dvr": 2,
     "cam": 1,
-    "actualizaciones": "creando componente pendientes",
+    "actualizaciones": "faltan componentes",
     "historialNotas": [
       {
         "fecha": "18/6/2026, 18:03:30",
         "contenido": "Nuevo Cliente"
       },
       {
-        "fecha": "18/6/2026, 18:03:48",
+        "fecha": "18/6/2026, 18:06:17",
         "contenido": "Crear relaciones"
-      },
-      {
-        "fecha": "18/6/2026, 18:04:09",
-        "contenido": "conexiones primarias"
       }
     ]
   }
