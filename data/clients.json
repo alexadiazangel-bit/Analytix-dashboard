@@ -261,7 +261,12 @@
     "nvr": 4,
     "dvr": 4,
     "cam": 3,
-    "actualizaciones": "Nueva Prueba de nota",
-    "historialNotas": []
+    "actualizaciones": "Prueba segunda de la nota",
+    "historialNotas": [
+      {
+        "fecha": "18/6/2026, 17:29:46",
+        "contenido": "Nueva Prueba de nota"
+      }
+    ]
   }
 ]
