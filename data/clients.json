@@ -263,17 +263,5 @@
     "cam": 3,
     "actualizaciones": "",
     "historialNotas": []
-  },
-  {
-    "id": 22,
-    "cliente": "OTRO",
-    "componentes": 1,
-    "conexiones": 1,
-    "grafo": "OK",
-    "nvr": 1,
-    "dvr": 2,
-    "cam": 3,
-    "actualizaciones": "",
-    "historialNotas": []
   }
 ]
