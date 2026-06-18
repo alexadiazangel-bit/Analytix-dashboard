@@ -278,7 +278,12 @@
     "nvr": 4,
     "dvr": 2,
     "cam": 1,
-    "actualizaciones": "Nuevo Cliente",
-    "historialNotas": []
+    "actualizaciones": "Crear relaciones",
+    "historialNotas": [
+      {
+        "fecha": "18/6/2026, 18:03:30",
+        "contenido": "Nuevo Cliente"
+      }
+    ]
   }
 ]
