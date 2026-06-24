@@ -122,11 +122,15 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Compontes correctos",
+    "actualizaciones": "Conexiones Primarias:\nPANEL INHOUSE\nNVR NUUO",
     "historialNotas": [
       {
         "fecha": "24/6/2026, 17:23:57",
         "contenido": "Se crean las relaciones de los NVR"
+      },
+      {
+        "fecha": "24/6/2026, 17:26:09",
+        "contenido": "Compontes correctos"
       }
     ]
   },
@@ -151,8 +155,13 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se creo relaciones",
-    "historialNotas": []
+    "actualizaciones": "Conexiones Primarias:\nSensor Puerta Expo Calle 30\nSensor Puerta Carrera 2",
+    "historialNotas": [
+      {
+        "fecha": "24/6/2026, 17:27:12",
+        "contenido": "Se creo relaciones"
+      }
+    ]
   },
   {
     "id": 10,
