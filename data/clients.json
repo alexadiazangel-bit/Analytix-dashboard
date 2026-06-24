@@ -219,11 +219,15 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se creo relaciones",
+    "actualizaciones": "Conexiones Primarias:\nTITAN 1: SNT-01 SINTEK SNH Tanque 2 CENTRO COMERCIAL\nSNT-03 SINTEK SNH Tanque 1 CENTRO COMERCIAL\nSNT-02 SINTEK SNH Tanque 3 TORRE EMPRESARIAL\nTITAN 2: SNA-01 TANQUE 2 Aguas lluvia\nSNT-04 TANQUE 3 Aguas tratadas\nSNA-02 TANQUE 1 Aguas lluvia\nTITAN 3:Medidor-04 trasferencia de pi",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:42:26 p. m.",
         "texto": "Pendiente revisar el tema de componentes asociados, procesador principal"
+      },
+      {
+        "fecha": "24/6/2026, 17:34:03",
+        "contenido": "Se creo relaciones"
       }
     ]
   },
