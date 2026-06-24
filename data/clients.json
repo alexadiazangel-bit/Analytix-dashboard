@@ -63,7 +63,7 @@
     "cliente": "CLARO",
     "componentes": 3703,
     "conexiones": 1673,
-    "grafo": "PENDIENTE",
+    "grafo": "OK",
     "nvr": null,
     "dvr": null,
     "cam": null,
@@ -101,8 +101,17 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean las relaciones de los NVR",
-    "historialNotas": []
+    "actualizaciones": "Conexiones Primarias:\nINHOUSE NVR HIKVISION\nINHOUSE PANEL NEO",
+    "historialNotas": [
+      {
+        "fecha": "24/6/2026, 17:23:42",
+        "contenido": "Se crean las relaciones de los NVR"
+      },
+      {
+        "fecha": "24/6/2026, 17:25:16",
+        "contenido": "Componentes correctos"
+      }
+    ]
   },
   {
     "id": 7,
@@ -113,8 +122,13 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean las relaciones de los NVR",
-    "historialNotas": []
+    "actualizaciones": "Compontes correctos",
+    "historialNotas": [
+      {
+        "fecha": "24/6/2026, 17:23:57",
+        "contenido": "Se crean las relaciones de los NVR"
+      }
+    ]
   },
   {
     "id": 8,
