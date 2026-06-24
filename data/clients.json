@@ -207,7 +207,7 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se escalo a Soporte  Onboarding bajo el tk 12207489733",
+    "actualizaciones": "TK 12349056988\nSu apoyo por favor validando el estado del NVR Nissan Apartadó, ya que actualmente se evidencia en estado OFFLINE. Sin embargo, se observa que los registros de datos continúan llegando de manera normal,",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:49:38 p. m.",
@@ -228,6 +228,10 @@
       {
         "fecha": "24/6/2026, 11:24:11",
         "contenido": "Se creo relaciones"
+      },
+      {
+        "fecha": "24/6/2026, 11:31:17",
+        "contenido": "Se escalo a Soporte  Onboarding bajo el tk 12207489733"
       }
     ]
   },
