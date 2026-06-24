@@ -143,8 +143,13 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean las relaciones de los NVR",
-    "historialNotas": []
+    "actualizaciones": "Conexiones Primarias:\nNVR 1 Exportación - 192.168.12.201\nNVR 2 Nacional - 192.168.12.203\nNVR 3 Cannon 3 - 192.168.12.202\nPANEL\nNVR 5 URDIDO - 192.168.12.200\nNVR 4 Cannon 4 - 192.168.12.204",
+    "historialNotas": [
+      {
+        "fecha": "24/6/2026, 17:28:29",
+        "contenido": "Se crean las relaciones de los NVR"
+      }
+    ]
   },
   {
     "id": 9,
