@@ -67,8 +67,13 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se continua creado las relaciones",
-    "historialNotas": []
+    "actualizaciones": "Se crean relaciones de sitios en estado online",
+    "historialNotas": [
+      {
+        "fecha": "24/6/2026, 17:23:10",
+        "contenido": "Se continua creado las relaciones"
+      }
+    ]
   },
   {
     "id": 5,
