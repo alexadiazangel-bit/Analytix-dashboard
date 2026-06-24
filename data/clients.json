@@ -177,11 +177,19 @@
     "nvr": null,
     "dvr": null,
     "cam": 1,
-    "actualizaciones": "Se creo relaciones",
+    "actualizaciones": "Conexiones Primarias:\nBomba jockey\nDetector de agua\nSensor de combustible\nCámara Bunker\nSensor de movimiento\nPanel RCI contra incendios",
     "historialNotas": [
       {
         "fecha": "27/5/2026, 4:16:38 p. m.",
         "texto": "Pendiente validar la asociación del componente procesador principal"
+      },
+      {
+        "fecha": "24/6/2026, 17:29:19",
+        "contenido": "Se creo relaciones"
+      },
+      {
+        "fecha": "24/6/2026, 17:30:29",
+        "contenido": "Se realizo el componente asociado del procesador principal correcto"
       }
     ]
   },
