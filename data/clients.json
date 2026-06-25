@@ -321,26 +321,5 @@
         "contenido": "Nueva Prueba de nota"
       }
     ]
-  },
-  {
-    "id": 22,
-    "cliente": "PUNTO BLANCO",
-    "componentes": 5,
-    "conexiones": 1,
-    "grafo": "OK",
-    "nvr": 4,
-    "dvr": 2,
-    "cam": 1,
-    "actualizaciones": "faltan componentes",
-    "historialNotas": [
-      {
-        "fecha": "18/6/2026, 18:03:30",
-        "contenido": "Nuevo Cliente"
-      },
-      {
-        "fecha": "18/6/2026, 18:06:17",
-        "contenido": "Crear relaciones"
-      }
-    ]
   }
 ]
