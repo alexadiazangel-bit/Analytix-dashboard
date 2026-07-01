@@ -199,8 +199,8 @@
     "componentes": 44,
     "conexiones": 34,
     "grafo": "OK",
-    "nvr": null,
-    "dvr": null,
+    "nvr": 3,
+    "dvr": 4,
     "cam": null,
     "actualizaciones": "Se valido el módulo de CCTV, se ajustó cantidad de cámaras con el apoyo de Oscar Rubio. Por el canal de Soporte Onboarding.",
     "historialNotas": [
