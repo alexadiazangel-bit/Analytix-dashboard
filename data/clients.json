@@ -202,7 +202,7 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Conexiones Primarias correctas cantidad 34 (DVR-NVR) en Gecolsa- Cali,Yopal,bucaramanga,Montería, Yumbo soledad,Tibasosa,Cúcuta,Turbaco,sabaneta,Sede Américas",
+    "actualizaciones": "Se valido el módulo de CCTV, se ajustó cantidad de cámaras con el apoyo de Oscar Rubio. Por el canal de Soporte Onboarding.",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:32:35 p. m.",
@@ -211,6 +211,10 @@
       {
         "fecha": "1/7/2026, 13:02:05",
         "contenido": "Se creo relaciones"
+      },
+      {
+        "fecha": "1/7/2026, 13:04:27",
+        "contenido": "Conexiones Primarias correctas cantidad 34 (DVR-NVR) en Gecolsa- Cali,Yopal,bucaramanga,Montería, Yumbo soledad,Tibasosa,Cúcuta,Turbaco,sabaneta,Sede Américas"
       }
     ]
   },
