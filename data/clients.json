@@ -252,7 +252,7 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "TK 12349056988\nSu apoyo por favor validando el estado del NVR Nissan Apartadó, ya que actualmente se evidencia en estado OFFLINE. Sin embargo, se observa que los registros de datos continúan llegando de manera normal,",
+    "actualizaciones": "En estado de producción el tablero CCTV, se realizaron novedades en cantidad de componentes, se valido con apoyo de Oscar Rubio. Se valido los Grabadores, cámaras y discos",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:49:38 p. m.",
@@ -277,6 +277,10 @@
       {
         "fecha": "24/6/2026, 11:31:17",
         "contenido": "Se escalo a Soporte  Onboarding bajo el tk 12207489733"
+      },
+      {
+        "fecha": "1/7/2026, 12:56:19",
+        "contenido": "TK 12349056988\nSu apoyo por favor validando el estado del NVR Nissan Apartadó, ya que actualmente se evidencia en estado OFFLINE. Sin embargo, se observa que los registros de datos continúan llegando de manera normal,"
       }
     ]
   },
