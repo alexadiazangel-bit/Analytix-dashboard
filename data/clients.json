@@ -257,8 +257,8 @@
     "componentes": 1348,
     "conexiones": 1354,
     "grafo": "OK",
-    "nvr": null,
-    "dvr": null,
+    "nvr": 62,
+    "dvr": 69,
     "cam": null,
     "actualizaciones": "En estado de producción el tablero CCTV, se realizaron novedades en cantidad de componentes, se valido con apoyo de Oscar Rubio. Se valido los Grabadores, cámaras y discos",
     "historialNotas": [
