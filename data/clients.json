@@ -199,8 +199,8 @@
     "componentes": 44,
     "conexiones": 34,
     "grafo": "OK",
-    "nvr": 3,
-    "dvr": 4,
+    "nvr": 20,
+    "dvr": 12,
     "cam": null,
     "actualizaciones": "Se valido el módulo de CCTV, se ajustó cantidad de cámaras con el apoyo de Oscar Rubio. Por el canal de Soporte Onboarding.",
     "historialNotas": [
@@ -260,7 +260,7 @@
     "nvr": 62,
     "dvr": 69,
     "cam": null,
-    "actualizaciones": "Se crea caso 12435327674 Con DVR Nissan - Colviseg\nBuenos días Oscar R. DavidL\n¿Nos puedes apoyar validando los siguientes DVR?\nDVR TALLER CALLE 13\nDVR VITRINA PEREIRA\nDVR COM 127\nDurante la revisión se evidenció que estos DVR tienen cámaras configuradas como IP, mientras que el resto de las cámaras",
+    "actualizaciones": "Adicionalmente, agradezco validar los grabadores que no están reportando correctamente la información de marca y/o modelo, ya que se evidencia que algunos registran únicamente la marca, otros muestran N/A en el modelo y, en algunos casos, ambos campos no contienen información. Favor confirmar si est",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:49:38 p. m.",
@@ -293,6 +293,10 @@
       {
         "fecha": "2/7/2026, 14:46:21",
         "contenido": "En estado de producción el tablero CCTV, se realizaron novedades en cantidad de componentes, se valido con apoyo de Oscar Rubio. Se valido los Grabadores, cámaras y discos"
+      },
+      {
+        "fecha": "2/7/2026, 14:46:27",
+        "contenido": "Se crea caso 12435327674 Con DVR Nissan - Colviseg\nBuenos días Oscar R. DavidL\n¿Nos puedes apoyar validando los siguientes DVR?\nDVR TALLER CALLE 13\nDVR VITRINA PEREIRA\nDVR COM 127\nDurante la revisión se evidenció que estos DVR tienen cámaras configuradas como IP, mientras que el resto de las cámaras"
       }
     ]
   },
