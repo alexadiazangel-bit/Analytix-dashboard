@@ -260,7 +260,7 @@
     "nvr": 62,
     "dvr": 69,
     "cam": null,
-    "actualizaciones": "Se encontró dos novedades\nCliente Nissan -  Colviseg DVR VITRINA Y TALLER PASO ANCHO\nOscar R. DavidL Agradecemos su apoyo validando el componente \"DVR PASO ANCHO DISTRIBUIDO_CAMARA 30\", ya que este no corresponde al DVR revisado.\nAdjunto imagen como evidencia. Gracias quedamos atentos a sus observac",
+    "actualizaciones": "Segunda novedad Cliente Nissan - Colviseg NVR TALLER POBLADO EXPRESS MEDELLIN\nOscar R. DavidL Agradecemos su apoyo validando el componente \"DISCO 1 DVR EXPRESS MEDELLIN y DVR EXPRESS MEDELLIN_CAMARA 8\", ya que este no corresponde al DVR revisado.\nAdjunto imagen como evidencia. Gracias quedamos atent",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:49:38 p. m.",
@@ -301,6 +301,10 @@
       {
         "fecha": "6/7/2026, 17:23:53",
         "contenido": "Adicionalmente, agradezco validar los grabadores que no están reportando correctamente la información de marca y/o modelo, ya que se evidencia que algunos registran únicamente la marca, otros muestran N/A en el modelo y, en algunos casos, ambos campos no contienen información. Favor confirmar si est"
+      },
+      {
+        "fecha": "6/7/2026, 17:24:48",
+        "contenido": "Se encontró dos novedades\nCliente Nissan -  Colviseg DVR VITRINA Y TALLER PASO ANCHO\nOscar R. DavidL Agradecemos su apoyo validando el componente \"DVR PASO ANCHO DISTRIBUIDO_CAMARA 30\", ya que este no corresponde al DVR revisado.\nAdjunto imagen como evidencia. Gracias quedamos atentos a sus observac"
       }
     ]
   },
