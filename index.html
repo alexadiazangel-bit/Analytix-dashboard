@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytix.2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3348;
+    --text: #e2e8f0;
+    --muted: #6b7280;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --blue: #3b82f6;
+    --blue-btn: #2563eb;
+    --accent: #4f6ef7;
+    --font: 'Courier New', 'Consolas', monospace;
+  }
+
+  html[data-theme="light"] {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --surface2: #f0f2f5;
+    --border: #e1e4e8;
+    --text: #0d1117;
+    --muted: #57606a;
+    --green: #1a7f37;
+    --red: #d1242f;
+    --orange: #bf8700;
+    --blue: #0969da;
+    --blue-btn: #1f6feb;
+    --accent: #5b7edb;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 13px;
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text);
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sync-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--accent);
+  }
+  .sync-dot::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 6px currentColor;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+  .nav-icon {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: color .2s, background .2s;
+  }
+  .nav-icon:hover { color: var(--text); background: var(--surface2); }
+
+  .btn-new {
+    background: var(--blue-btn);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-family: var(--font);
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .2s;
+  }
+  .btn-new:hover { background: #1d4ed8; }
+
+  main { padding: 24px; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .kpi-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .kpi-value.green { color: var(--green); }
+  .kpi-value.red   { color: var(--red);   }
+  .kpi-value.white { color: var(--text);  }
+  .kpi-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-dl {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-family: var(--font);
+    font-size: 11px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-dl:hover { border-color: var(--accent); background: var(--surface2); }
+
+  .search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+  }
+  .search-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 12px 9px 38px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 12px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--muted); }
+
+  .filter-select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 9px 32px 9px 12px;
+    font-family: var(--font);
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color .2s;
+  }
+  .filter-select:focus { border-color: var(--accent); }
+
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    background: var(--surface2);
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  thead th:first-child { width: 40px; text-align: center; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+
+  td {
+    padding: 12px 14px;
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  td:first-child { text-align: center; color: var(--muted); font-size: 11px; }
+
+  .client-name {
+    font-weight: 700;
+    letter-spacing: .5px;
+    font-size: 13px;
+  }
+
+  .num { font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .badge.ok       { background: rgba(34,197,94,.15);  color: var(--green); border: 1px solid rgba(34,197,94,.3); }
+  .badge.pending  { background: rgba(249,115,22,.15); color: var(--orange); border: 1px solid rgba(249,115,22,.3); }
+
+  .cctv-wrap { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .cctv-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .cctv-tag .val { color: var(--text); font-weight: 700; }
+  .cctv-empty { color: var(--muted); font-size: 11px; }
+
+  .actions { display: flex; gap: 8px; align-items: center; }
+  .act-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color .2s, background .2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  .act-btn:hover { color: var(--text); background: var(--border); }
+  .act-btn.del:hover { color: var(--red); }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 520px;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px;
+    position: relative;
+  }
+
+  .modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: .5px;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color .2s;
+  }
+  .modal-close:hover { color: var(--text); }
+
+  .field-group { margin-bottom: 18px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+
+  .field-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+
+  .field-input, .field-select, .field-textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 12px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 12px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: var(--accent); }
+  .field-select { appearance: none; cursor: pointer; }
+  .field-textarea { resize: vertical; min-height: 70px; }
+
+  .cctv-section {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+    background: var(--bg);
+  }
+  .cctv-section-title {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .cctv-fields { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .btn-cancel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 9px 20px;
+    font-family: var(--font);
+    font-size: 12px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-cancel:hover { background: var(--border); }
+
+  .btn-save {
+    background: var(--blue-btn);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 24px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-save:hover { background: #1d4ed8; }
+
+  .notas-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .notas-cliente-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .5px;
+  }
+  .notas-current {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 16px;
+    min-height: 60px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .notas-current.has-text { color: var(--text); }
+  .notas-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+  .notas-char-count {
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--surface2);
+    border: 1px solid var(--green);
+    color: var(--green);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 12px;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .toolbar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Analytix<span>.</span>2026</div>
+  <div class="nav-right">
+    <div class="sync-dot" id="syncTime">Cargando...</div>
+    <button class="nav-icon" title="Refrescar" onclick="refreshSync()">⟳</button>
+    <button class="nav-icon" title="Tema día/noche" onclick="toggleTheme()" id="themeBtn">☽</button>
+    <button class="nav-icon" title="GitHub Sync" onclick="openGitHubSettings()">⚙</button>
+    <button class="btn-new" onclick="openModal(null)">+ Nuevo cliente</button>
+  </div>
+</nav>
+
+<main>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total clientes</div>
+      <div class="kpi-value white" id="kpiTotal">—</div>
+      <div class="kpi-sub">Registros activos</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Grafo OK</div>
+      <div class="kpi-value green" id="kpiOk">—</div>
+      <div class="kpi-sub" id="kpiOkPct">—% del total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Pendientes</div>
+      <div class="kpi-value red" id="kpiPending">—</div>
+      <div class="kpi-sub" id="kpiPendPct">—% del total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Total componentes</div>
+      <div class="kpi-value white" id="kpiComp">—</div>
+      <div class="kpi-sub">Suma acumulada</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn-dl" onclick="downloadJSON()">⬇ Descargar JSON</button>
+    <button class="btn-dl" onclick="downloadCSV()">⬇ Descargar CSV</button>
+    <button class="btn-dl" onclick="downloadXLSX()">⬇ Descargar XLSX</button>
+  </div>
+
+  <div class="search-row">
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Buscar cliente…" id="searchInput" oninput="renderTable()" autocomplete="new-password" name="search_no_fill" readonly onfocus="this.removeAttribute('readonly')">
+    </div>
+    <select class="filter-select" id="filterSelect" onchange="renderTable()">
+      <option value="">Todos los estados</option>
+      <option value="OK">OK</option>
+      <option value="PENDIENTE">Pendiente</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cliente</th>
+          <th>Componentes</th>
+          <th>Conexiones</th>
+          <th>Grafo</th>
+          <th>CCTV</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</main>
+
+<!-- MODAL EDITAR CLIENTE -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="modalTitle">Nuevo cliente</div>
+
+    <div class="field-group">
+      <label class="field-label">Cliente</label>
+      <input class="field-input" id="fCliente" type="text" placeholder="Nombre del cliente">
+    </div>
+
+    <div class="field-row">
+      <div>
+        <label class="field-label">Componentes</label>
+        <input class="field-input" id="fComponentes" type="number" placeholder="0">
+      </div>
+      <div>
+        <label class="field-label">Conexiones primarias</label>
+        <input class="field-input" id="fConexiones" type="number" placeholder="0">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Grafo relaciones</label>
+      <select class="field-select" id="fGrafo">
+        <option value="OK">OK</option>
+        <option value="PENDIENTE">PENDIENTE</option>
+      </select>
+    </div>
+
+    <div class="cctv-section">
+      <div class="cctv-section-title">📷 CCTV</div>
+      <div class="cctv-fields">
+        <div>
+          <label class="field-label">NVR</label>
+          <input class="field-input" id="fNVR" type="number" placeholder="—">
+        </div>
+        <div>
+          <label class="field-label">DVR</label>
+          <input class="field-input" id="fDVR" type="number" placeholder="—">
+        </div>
+        <div>
+          <label class="field-label">Cámaras</label>
+          <input class="field-input" id="fCAM" type="number" placeholder="—">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveClient()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTAS MODAL -->
+<div class="modal-overlay" id="notasModalOverlay">
+  <div class="modal" style="width:460px;">
+    <button class="modal-close" onclick="closeNotasModal()">✕</button>
+    <div class="modal-title">📋 Nota de actualización</div>
+
+    <div class="notas-header">
+      <span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;">Cliente:</span>
+      <span class="notas-cliente-tag" id="notasClienteTag">—</span>
+    </div>
+
+    <div class="field-group">
+      <div class="notas-label-row">
+        <label class="field-label" style="margin-bottom:0;">Nueva nota</label>
+        <span class="notas-char-count" id="notasCharCount">0 caracteres</span>
+      </div>
+      <textarea class="field-textarea" id="fNotas" placeholder="Escribe una nota de actualización…"
+        oninput="document.getElementById('notasCharCount').textContent = this.value.length + ' caracteres'"
+        style="min-height:160px;"></textarea>
+    </div>
+
+    <div class="field-group" id="notasCurrentGroup">
+      <label class="field-label">Nota guardada actualmente</label>
+      <div class="notas-current" id="notasCurrentText">Sin notas.</div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="openNotasHistorial(notasIdx)" id="btnHistorialNota" style="display:none;">📜 Ver historial</button>
+      <button class="btn-cancel" onclick="clearNota()" id="btnClearNota" style="color:var(--red);border-color:var(--red);">🗑 Borrar nota</button>
+      <button class="btn-cancel" onclick="closeNotasModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveNota()">Guardar nota</button>
+    </div>
+  </div>
+</div>
+
+<!-- GITHUB SYNC MODAL -->
+<div class="modal-overlay" id="githubModalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeGitHubSettings()">✕</button>
+    <div class="modal-title">⚙ GitHub Sync - Configuración</div>
+
+    <div class="field-row">
+      <div>
+        <label class="field-label">Usuario GitHub</label>
+        <input class="field-input" id="fGhUser" type="text" placeholder="alexadiazangel-bit">
+      </div>
+      <div>
+        <label class="field-label">Nombre del Repositorio</label>
+        <input class="field-input" id="fGhRepoName" type="text" placeholder="Analytix-dashboard">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Personal Access Token</label>
+      <input class="field-input" id="fGhToken" type="password" placeholder="ghp_xxxxxxxxxxxx">
+      <div style="font-size:10px;color:var(--muted);margin-top:5px;">⚠ Guarda este token en un lugar seguro. No lo compartas con nadie.</div>
+    </div>
+
+    <div class="field-row">
+      <div>
+        <label class="field-label">Branch</label>
+        <input class="field-input" id="fGhBranch" type="text" placeholder="main" value="main">
+      </div>
+      <div>
+        <label class="field-label">Archivo JSON</label>
+        <input class="field-input" id="fGhFile" type="text" placeholder="data/clients.json" value="data/clients.json">
+      </div>
+    </div>
+
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:18px;">
+      <div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px;">📡 Estado de sincronización</div>
+      <div id="ghStatusText" style="font-size:12px;color:var(--muted);">Sin configurar</div>
+    </div>
+
+    <div class="modal-footer" style="flex-wrap:wrap;gap:8px;">
+      <button class="btn-cancel" onclick="testGitHubConnection()">🔌 Probar conexión</button>
+      <button class="btn-cancel" onclick="pullFromGitHub()">⬇ Cargar datos</button>
+      <button class="btn-cancel" onclick="pushToGitHub()" style="color:var(--green);border-color:var(--green);">⬆ Guardar en GitHub</button>
+      <button class="btn-cancel" onclick="closeGitHubSettings()">Cancelar</button>
+      <button class="btn-save" onclick="saveGitHubSettings()">Guardar config</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Modo localStorage (sin servidor) ──────────────────────────────────────────
+const LS_KEY = 'analytixClients_v3';
+
+// Datos iniciales exportados desde la BD (backup del 16/06/2026)
+const INITIAL_DATA = [{"id":1,"cliente":"GBC","componentes":11,"conexiones":11,"grafo":"OK","nvr":1,"dvr":1,"cam":null,"actualizaciones":"Se crearon Grafo de relaciones","historialNotas":[{"fecha":"26/5/2026, 6:56:43 p. m.","contenido":"Se creo el grafo"},{"fecha":"27/5/2026, 11:29:44 a. m.","contenido":"Componentes correctos"},{"fecha":"12/6/2026, 18:10:53","estado":"ELIMINADA","contenido":"Relaciones ok"},{"fecha":"16/6/2026, 10:42:41","contenido":"Se adiciona componentes de CCTV"},{"fecha":"16/6/2026, 10:45:19","contenido":"Componentes Correctos.\nConexiones Primarias corretos"}]},{"id":2,"cliente":"NUTRESA","componentes":37,"conexiones":32,"grafo":"OK","nvr":null,"dvr":null,"cam":null,"actualizaciones":"Se crearon grafo de relaciones.","historialNotas":[{"fecha":"27/5/2026, 4:00:45 p. m.","contenido":"En validaciones en Soporte Onboarding con el tema de componentes hijos y asociados"},{"fecha":"28/5/2026, 3:11:47 p. m.","contenido":"Se el tema del componente de procesador principal se creo ticket en plataforma de GGSDESK # 19 20/05/2026"},{"fecha":"16/6/2026, 10:45:45","contenido":"Componentes Correctos.\nConexiones Primarias Correctas"}]},{"id":3,"cliente":"STERIGENICS","componentes":6,"conexiones":3,"grafo":"OK","nvr":null,"dvr":null,"cam":null,"actualizaciones":"Se crearon Grafo de relaciones","historialNotas":[{"fecha":"16/6/2026, 11:08:13","contenido":"Componentes Correctos.\nConexiones Primarias correctos."}]},{"id":4,"cliente":"CLARO","componentes":3703,"conexiones":1673,"grafo":"PENDIENTE","nvr":null,"dvr":null,"cam":null,"actualizaciones":"","historialNotas":[]},{"id":5,"cliente":"COLVISEG","componentes":7,"conexiones":6,"grafo":"OK","nvr":1,"dvr":null,"cam":null,"actualizaciones":"Se crearon Grafo de relaciones","historialNotas":[{"fecha":"27/5/2026, 11:32:43 a. m.","contenido":"Grafo de relaciones creado exitoso"},{"fecha":"16/6/2026, 10:45:02","contenido":"Relaciones creadas en el servidor 1 y NVR"},{"fecha":"16/6/2026, 11:24:12","contenido":"Componentes Correctos.\nConexiones Primarias Correctas."}]},{"id":6,"cliente":"REENCAFE EL POLLO","componentes":2,"conexiones":2,"grafo":"OK","nvr":1,"dvr":null,"cam":null,"actualizaciones":"Componentes correctos.\nConexiones primarias correctas.","historialNotas":[{"fecha":"16/6/2026, 11:26:50","contenido":"Se crean las relaciones de los NVR"}]},{"id":7,"cliente":"REENCAFE BODEGA NEXOS","componentes":2,"conexiones":2,"grafo":"OK","nvr":1,"dvr":null,"cam":null,"actualizaciones":"Componentes correctos.\nConexiones Primarias Correctas","historialNotas":[{"fecha":"16/6/2026, 11:34:36","contenido":"Se crean las relaciones de los NVR"}]},{"id":8,"cliente":"CANNON ALARMA","componentes":9,"conexiones":6,"grafo":"OK","nvr":5,"dvr":null,"cam":null,"actualizaciones":"Se crean las relaciones de los NVR","historialNotas":[]},{"id":9,"cliente":"CANNON-LORAWAN SENSORES","componentes":3,"conexiones":2,"grafo":"OK","nvr":null,"dvr":null,"cam":null,"actualizaciones":"Componentes Correctos.\nconexiones Primarias.","historialNotas":[{"fecha":"16/6/2026, 11:38:32","contenido":"Se creo relaciones"}]},{"id":10,"cliente":"GIMNASIO","componentes":7,"conexiones":6,"grafo":"OK","nvr":null,"dvr":null,"cam":1,"actualizaciones":"Componentes Correctos.\nConexiones Primarias Correctas.","historialNotas":[{"fecha":"27/5/2026, 4:16:38 p. m.","contenido":"Pendiente validar la asociación del componente procesador principal"},{"fecha":"16/6/2026, 11:39:53","contenido":"Se creo relaciones"}]},{"id":11,"cliente":"GECOLSA","componentes":44,"conexiones":34,"grafo":"OK","nvr":12,"dvr":19,"cam":null,"actualizaciones":"Se desmontan dos sitios Gecolsa - Barranquilla Via 40.\nTICKET 11695619689","historialNotas":[{"fecha":"28/5/2026, 2:32:35 p. m.","contenido":"Se creo grafo de relaciones"},{"fecha":"16/6/2026, 11:41:49","contenido":"Se creo relaciones"}]},{"id":12,"cliente":"TITAN PLAZA","componentes":13,"conexiones":10,"grafo":"OK","nvr":null,"dvr":null,"cam":null,"actualizaciones":"Conexiones Primarias Correctas","historialNotas":[{"fecha":"28/5/2026, 2:42:26 p. m.","contenido":"Pendiente revisar el tema de componentes asociados, procesador principal"},{"fecha":"16/6/2026, 11:45:09","contenido":"Se creo relaciones"}]},{"id":13,"cliente":"ENTEL","componentes":209,"conexiones":191,"grafo":"OK","nvr":null,"dvr":null,"cam":4,"actualizaciones":"Cámara EB VA720 Peñuelas - Entel - VA720.\nCámara EB General Bonilla - Entel - SA665.\nCámara EB SA373 3 Poniente Maipú - Entel - SA373.\nCámara EB VZ579 Peñuelas Quintai - Entel - ZV579.","historialNotas":[]},{"id":14,"cliente":"NISSAN COLVISEG","componentes":133,"conexiones":132,"grafo":"OK","nvr":62,"dvr":69,"cam":null,"actualizaciones":"Conexiones Primarias correctas.","historialNotas":[{"fecha":"28/5/2026, 2:49:38 p. m.","contenido":"Se maneja por el chat de Teams Soporte de Onboarding revisar el tema de conexiones primarias, se creo el 22 de mayo aun sin feedback"},{"fecha":"4/6/2026, 5:25:36 p. m.","contenido":"Se evidencia que son 134 DVR y NVR. Se continua con la creación de relaciones"},{"fecha":"5/6/2026, 4:52:18 p. m.","contenido":"Se continua con la actividad de la creación de grafo de relaciones falta 9 NVR."},{"fecha":"9/6/2026, 2:11:04 p. m.","contenido":"Se termina de creer el grafo de relaciones. Pendiente novedades por parte de Soporte Onboarding"},{"fecha":"16/6/2026, 11:59:15","contenido":"Se creo relaciones"}]},{"id":15,"cliente":"LADRILLERA SANTA FE","componentes":63,"conexiones":66,"grafo":"OK","nvr":25,"dvr":1,"cam":null,"actualizaciones":"Se desmonto el sitios de Usme","historialNotas":[{"fecha":"28/5/2026, 2:41:41 p. m.","contenido":"Ladrillera Usme desinstalado"},{"fecha":"28/5/2026, 3:30:36 p. m.","contenido":"Evidencias de grafo documento word \"Grafo de relaciones\""},{"fecha":"28/5/2026, 4:27:37 p. m.","contenido":"PLC Planta Arcillas 1 Eso aun no esta entregado esta en pruebas así que al momento no esta entregado Se pregunto directamente al Ing. Jonatan Romero"},{"fecha":"16/6/2026, 11:58:48","contenido":"Se agrega CCTV al dashboard"},{"fecha":"16/6/2026, 11:59:49","contenido":"Se crearon Grafo de relaciones.\nConexiones Primarias."}]},{"id":21,"cliente":"PRUEBA","componentes":10,"conexiones":5,"grafo":"PENDIENTE","nvr":4,"dvr":4,"cam":3,"actualizaciones":"","historialNotas":[]}];
+
+let clients = [];
+let editIdx = null;
+let notasIdx = null;
+
+function genId() {
+  return clients.length > 0 ? Math.max(...clients.map(c => c.id)) + 1 : 1;
+}
+
+function saveClients() {
+  localStorage.setItem(LS_KEY, JSON.stringify(clients));
+  autoSyncGitHub();
+}
+
+let ghSyncTimer = null;
+function autoSyncGitHub() {
+  const cfg = getGhConfig();
+  if (!cfg.user || !cfg.repoName || !cfg.token) return; // GitHub no configurado, no hace nada
+  setSyncStatus('saving', '⏳ Guardando...');
+  // Debounce: espera 3.5s de inactividad antes de subir, para no saturar la API si hay varios cambios seguidos
+  clearTimeout(ghSyncTimer);
+  ghSyncTimer = setTimeout(() => { pushToGitHub(true); }, 3500);
+}
+
+function loadClients() {
+  const stored = localStorage.getItem(LS_KEY);
+  if (stored) {
+    clients = JSON.parse(stored);
+  } else {
+    // Primera vez: cargar datos iniciales del backup
+    clients = JSON.parse(JSON.stringify(INITIAL_DATA));
+    saveClients();
+  }
+  updateKPI();
+  renderTable();
+  setSyncStatus('local', 'Local ' + new Date().toLocaleTimeString('es', {hour:'2-digit', minute:'2-digit'}));
+}
+
+// Actualiza el indicador visual de sincronización con color según estado:
+// 'local' = gris/azul (solo en este navegador), 'saving' = amarillo (subiendo...), 'ok' = verde (guardado en GitHub), 'error' = rojo (falló)
+function setSyncStatus(state, text) {
+  const el = document.getElementById('syncTime');
+  if (!el) return;
+  el.textContent = text;
+  const colors = { local: 'var(--accent)', saving: 'var(--orange)', ok: 'var(--green)', error: 'var(--red)' };
+  el.style.color = colors[state] || 'var(--muted)';
+  el.style.setProperty('--dot-color', colors[state] || 'var(--muted)');
+}
+
+// mapToAPI ya no se usa para fetch, pero se mantiene por compatibilidad con GitHub Sync
+function mapToAPI(c) {
+  return {
+    cliente:             c.cliente,
+    componente:          c.componentes || 0,
+    conexionesPrimarias: c.conexiones || 0,
+    grafoRelaciones:     c.grafo || 'PENDIENTE',
+    cctvNvr:             c.nvr || 0,
+    cctvDvr:             c.dvr || 0,
+    cctvCamaras:         c.cam || 0,
+    actualizaciones:     c.actualizaciones || '',
+    notas:               c.historialNotas || [],
+  };
+}
+
+function clearSearchInput() {
+  const searchInput = document.getElementById('searchInput');
+  const filterSelect = document.getElementById('filterSelect');
+  
+  // Método 1: Limpiar value
+  searchInput.value = '';
+  filterSelect.value = '';
+  
+  // Método 2: Limpiar atributos
+  searchInput.setAttribute('value', '');
+  searchInput.defaultValue = '';
+  
+  // Método 3: Disparar eventos
+  searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+function updateKPI() {
+  const total = clients.length;
+  const okC   = clients.filter(c => c.grafo === 'OK').length;
+  const pend  = total - okC;
+  const comp  = clients.reduce((a,c) => a + (c.componentes||0), 0);
+  document.getElementById('kpiTotal').textContent   = total;
+  document.getElementById('kpiOk').textContent      = okC;
+  document.getElementById('kpiOkPct').textContent   = Math.round(okC/total*100) + '% del total';
+  document.getElementById('kpiPending').textContent = pend;
+  document.getElementById('kpiPendPct').textContent = Math.round(pend/total*100) + '% del total';
+  document.getElementById('kpiComp').textContent    = comp.toLocaleString('es').replace(',','.');
+}
+
+function renderTable() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filter = document.getElementById('filterSelect').value;
+  const tbody = document.getElementById('tableBody');
+  let html = '';
+  clients.forEach((c, idx) => {
+    const matchQ = !q || c.cliente.toLowerCase().includes(q);
+    const matchF = !filter || c.grafo.toUpperCase().includes(filter.toUpperCase());
+    if (!matchQ || !matchF) return;
+    const grafoNorm = c.grafo.toUpperCase().includes('OK') ? 'OK' : 'PENDIENTE';
+    const badgeClass = grafoNorm === 'OK' ? 'ok' : 'pending';
+    let cctvHtml = '';
+    if (!c.nvr && !c.dvr && !c.cam) {
+      cctvHtml = '<span class="cctv-empty">—</span>';
+    } else {
+      cctvHtml = '<div class="cctv-wrap">';
+      if (c.nvr) cctvHtml += `<span class="cctv-tag nvr">NVR <span class="val">${c.nvr}</span></span>`;
+      if (c.dvr) cctvHtml += `<span class="cctv-tag dvr">DVR <span class="val">${c.dvr}</span></span>`;
+      if (c.cam) cctvHtml += `<span class="cctv-tag cam">CAM <span class="val">${c.cam}</span></span>`;
+      cctvHtml += '</div>';
+    }
+    html += `<tr><td>${idx+1}</td><td><span class="client-name">${c.cliente}</span></td><td class="num">${c.componentes != null ? c.componentes.toLocaleString('es') : '—'}</td><td class="num">${c.conexiones != null ? c.conexiones.toLocaleString('es') : '—'}</td><td><span class="badge ${badgeClass}">${grafoNorm}</span></td><td>${cctvHtml}</td><td><div class="actions"><button class="act-btn" onclick="openModal(${idx})" title="Editar">✎</button><button class="act-btn" onclick="openNotasModal(${idx})" title="Ver notas">${c.actualizaciones ? '📝' : '📋'}</button><button class="act-btn del" onclick="deleteClient(${idx})" title="Eliminar">🗑</button></div></td></tr>`;
+  });
+  tbody.innerHTML = html;
+}
+
+function openModal(idx) {
+  editIdx = idx;
+  const c = idx !== null ? clients[idx] : null;
+  document.getElementById('modalTitle').textContent = c ? 'Editar cliente' : 'Nuevo cliente';
+  document.getElementById('fCliente').value = c?.cliente || '';
+  document.getElementById('fComponentes').value = c?.componentes ?? '';
+  document.getElementById('fConexiones').value = c?.conexiones ?? '';
+  document.getElementById('fGrafo').value = c?.grafo === 'OK' ? 'OK' : 'PENDIENTE';
+  document.getElementById('fNVR').value = c?.nvr ?? '';
+  document.getElementById('fDVR').value = c?.dvr ?? '';
+  document.getElementById('fCAM').value = c?.cam ?? '';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  editIdx = null;
+}
+
+function saveClient() {
+  const cliente = document.getElementById('fCliente').value.trim().toUpperCase();
+  if (!cliente) { alert('El nombre del cliente es obligatorio.'); return; }
+  const data = {
+    cliente,
+    componentes: parseNum(document.getElementById('fComponentes').value) || 0,
+    conexiones:  parseNum(document.getElementById('fConexiones').value) || 0,
+    grafo:       document.getElementById('fGrafo').value,
+    nvr:         parseNum(document.getElementById('fNVR').value) || null,
+    dvr:         parseNum(document.getElementById('fDVR').value) || null,
+    cam:         parseNum(document.getElementById('fCAM').value) || null,
+  };
+  if (editIdx !== null) {
+    clients[editIdx] = { ...clients[editIdx], ...data };
+    showToast('Cliente actualizado ✓');
+  } else {
+    clients.push({ id: genId(), ...data, actualizaciones: '', historialNotas: [] });
+    showToast('Cliente creado ✓');
+  }
+  saveClients();
+  closeModal();
+  loadClients();
+}
+
+function deleteClient(idx) {
+  if (!confirm(`¿Eliminar "${clients[idx].cliente}"?`)) return;
+  clients.splice(idx, 1);
+  saveClients();
+  showToast('Cliente eliminado');
+  loadClients();
+}
+
+function parseNum(v) {
+  const n = parseFloat(v);
+  return isNaN(n) ? null : n;
+}
+
+function openNotasModal(idx) {
+  notasIdx = idx;
+  const c = clients[idx];
+  document.getElementById('notasClienteTag').textContent = c.cliente;
+  document.getElementById('fNotas').value = '';
+  document.getElementById('notasCharCount').textContent = '0 caracteres';
+  const current = c.actualizaciones || '';
+  const currentEl = document.getElementById('notasCurrentText');
+  currentEl.textContent = current || 'Sin notas.';
+  currentEl.className = 'notas-current' + (current ? ' has-text' : '');
+  document.getElementById('btnClearNota').style.display = current ? 'inline-block' : 'none';
+  
+  // Mostrar botón de historial si hay notas antiguas
+  const historial = c.historialNotas || [];
+  const btnHistorial = document.getElementById('btnHistorialNota');
+  if (btnHistorial) {
+    btnHistorial.style.display = historial.length > 0 ? 'inline-block' : 'none';
+  }
+  
+  document.getElementById('notasModalOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('fNotas').focus(), 100);
+}
+
+function openNotasHistorial(idx) {
+  const c = clients[idx];
+  const historial = c.historialNotas || [];
+  
+  if (historial.length === 0) {
+    showToast('⚠ No hay historial de notas');
+    return;
+  }
+  
+  let html = '<div style="max-height:400px;overflow-y:auto;">';
+  historial.forEach((nota, i) => {
+    const estado = nota.estado === 'ELIMINADA' ? ' <span style="color:var(--red);">[ELIMINADA]</span>' : '';
+    const texto = nota.contenido || nota.texto || '';
+    html += `<div style="margin-bottom:12px;padding:10px;background:var(--surface2);border-radius:6px;border-left:3px solid var(--accent);">
+      <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">📅 ${nota.fecha}${estado}</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;white-space:pre-wrap;">${texto}</div>
+    </div>`;
+  });
+  html += '</div>';
+  
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay open';
+  modal.id = 'historialModal';
+  modal.style.display = 'flex';
+  modal.innerHTML = `<div class="modal" style="width:520px;">
+    <button class="modal-close" onclick="document.getElementById('historialModal').remove()">✕</button>
+    <div class="modal-title">📜 Historial de Notas - ${c.cliente}</div>
+    ${html}
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="document.getElementById('historialModal').remove()">Cerrar</button>
+    </div>
+  </div>`;
+  
+  document.body.appendChild(modal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) this.remove();
+  });
+}
+
+function closeNotasModal() {
+  document.getElementById('notasModalOverlay').classList.remove('open');
+  notasIdx = null;
+}
+
+function saveNota() {
+  const nota = document.getElementById('fNotas').value.trim();
+  if (!nota) { showToast('⚠ Escribe una nota antes de guardar'); return; }
+  const c = clients[notasIdx];
+  const currentNota = c.actualizaciones || '';
+  if (currentNota) {
+    c.historialNotas = c.historialNotas || [];
+    c.historialNotas.push({ fecha: new Date().toLocaleString('es'), contenido: currentNota });
+  }
+  c.actualizaciones = nota;
+  saveClients();
+  closeNotasModal();
+  loadClients();
+  showToast('Nota guardada ✓');
+}
+
+function clearNota() {
+  if (!confirm('¿Eliminar la nota actual de este cliente?')) return;
+  const c = clients[notasIdx];
+  const currentNota = c.actualizaciones || '';
+  if (currentNota) {
+    c.historialNotas = c.historialNotas || [];
+    c.historialNotas.push({ fecha: new Date().toLocaleString('es'), contenido: currentNota, estado: 'ELIMINADA' });
+  }
+  c.actualizaciones = '';
+  saveClients();
+  closeNotasModal();
+  loadClients();
+  showToast('Nota eliminada');
+}
+
+function getGhConfig() {
+  return JSON.parse(localStorage.getItem('githubConfig') || '{}');
+}
+
+function getApiBase(cfg) {
+  return `https://api.github.com/repos/${cfg.user}/${cfg.repoName}/contents/${cfg.file}`;
+}
+
+function openGitHubSettings() {
+  const saved = getGhConfig();
+  document.getElementById('fGhUser').value = saved.user || '';
+  document.getElementById('fGhRepoName').value = saved.repoName || '';
+  document.getElementById('fGhToken').value = saved.token || '';
+  document.getElementById('fGhBranch').value = saved.branch || 'main';
+  document.getElementById('fGhFile').value = saved.file || 'data/clients.json';
+  const status = document.getElementById('ghStatusText');
+  if (saved.user && saved.repoName && saved.token) {
+    status.textContent = `Configurado: ${saved.user}/${saved.repoName} → ${saved.file}`;
+    status.style.color = 'var(--green)';
+  } else {
+    status.textContent = 'Sin configurar';
+    status.style.color = 'var(--muted)';
+  }
+  document.getElementById('githubModalOverlay').classList.add('open');
+}
+
+function closeGitHubSettings() {
+  document.getElementById('githubModalOverlay').classList.remove('open');
+}
+
+function saveGitHubSettings() {
+  const config = {
+    user: document.getElementById('fGhUser').value.trim(),
+    repoName: document.getElementById('fGhRepoName').value.trim(),
+    token: document.getElementById('fGhToken').value.trim(),
+    branch: document.getElementById('fGhBranch').value.trim() || 'main',
+    file: document.getElementById('fGhFile').value.trim() || 'data/clients.json',
+  };
+  if (!config.user || !config.repoName || !config.token) {
+    showToast('⚠ Completa usuario, repositorio y token');
+    return;
+  }
+  localStorage.setItem('githubConfig', JSON.stringify(config));
+  closeGitHubSettings();
+  showToast('Configuración guardada ✓');
+}
+
+async function testGitHubConnection() {
+  const cfg = {
+    user: document.getElementById('fGhUser').value.trim(),
+    repoName: document.getElementById('fGhRepoName').value.trim(),
+    token: document.getElementById('fGhToken').value.trim(),
+  };
+  if (!cfg.user || !cfg.token) {
+    showToast('⚠ Completa usuario y token');
+    return;
+  }
+  showToast('Probando conexión...');
+  try {
+    const r = await fetch('https://api.github.com/user', {
+      headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (r.ok) {
+      const u = await r.json();
+      document.getElementById('ghStatusText').textContent = `✓ Conectado como ${u.login}`;
+      document.getElementById('ghStatusText').style.color = 'var(--green)';
+      showToast(`✓ Conectado como ${u.login}`);
+    } else {
+      showToast('✗ Token inválido');
+    }
+  } catch (e) { showToast('✗ Error de red'); }
+}
+
+async function pushToGitHub(silent, attempt) {
+  attempt = attempt || 1;
+  const cfg = getGhConfig();
+  if (!cfg.user || !cfg.repoName || !cfg.token) {
+    if (!silent) showToast('⚠ Configura GitHub primero');
+    return;
+  }
+  if (!silent) showToast('Guardando en GitHub...');
+  try {
+    const apiUrl = getApiBase(cfg);
+    // Get current SHA if file exists (siempre se pide fresco para evitar conflictos)
+    let sha = null;
+    const getR = await fetch(apiUrl + `?ref=${cfg.branch}`, {
+      headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (getR.ok) {
+      const existing = await getR.json();
+      sha = existing.sha;
+    }
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(clients, null, 2))));
+    const body = {
+      message: `Analytix sync ${new Date().toLocaleString('es')}`,
+      content,
+      branch: cfg.branch,
+    };
+    if (sha) body.sha = sha;
+    const putR = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${cfg.token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+    if (putR.ok) {
+      const statusEl = document.getElementById('ghStatusText');
+      if (statusEl) {
+        statusEl.textContent = `✓ Guardado en GitHub: ${new Date().toLocaleString('es')}`;
+        statusEl.style.color = 'var(--green)';
+      }
+      setSyncStatus('ok', '✓ GitHub ' + new Date().toLocaleTimeString('es', {hour:'2-digit', minute:'2-digit'}));
+      if (!silent) showToast('✓ Datos guardados en GitHub');
+    } else {
+      const err = await putR.json();
+      const isConflict = putR.status === 409 || (err.message || '').includes('does not match');
+      // Reintento automático si fue un conflicto de versión (SHA desactualizado) y aún quedan intentos
+      if (isConflict && attempt < 4) {
+        await new Promise(res => setTimeout(res, 800 * attempt));
+        return pushToGitHub(silent, attempt + 1);
+      }
+      setSyncStatus('error', '✗ Error al guardar');
+      if (!silent) showToast('✗ Error: ' + (err.message || 'desconocido'));
+      else showToast('⚠ No se pudo sincronizar con GitHub, reintenta con ⬆ Guardar en GitHub');
+    }
+  } catch (e) { if (!silent) showToast('✗ Error de red'); }
+}
+
+async function pullFromGitHub() {
+  const cfg = getGhConfig();
+  if (!cfg.user || !cfg.repoName || !cfg.token) {
+    showToast('⚠ Configura GitHub primero');
+    return;
+  }
+  showToast('Cargando datos desde GitHub...');
+  try {
+    const apiUrl = getApiBase(cfg);
+    const r = await fetch(apiUrl + `?ref=${cfg.branch}`, {
+      headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (r.ok) {
+      const data = await r.json();
+      const decoded = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+      const parsed = JSON.parse(decoded);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        clients = parsed;
+        saveClients();
+        updateKPI();
+        renderTable();
+        document.getElementById('ghStatusText').textContent = `✓ Datos cargados: ${parsed.length} clientes — ${new Date().toLocaleString('es')}`;
+        document.getElementById('ghStatusText').style.color = 'var(--green)';
+        showToast(`✓ ${parsed.length} clientes cargados desde GitHub`);
+      } else {
+        showToast('⚠ Archivo vacío o sin datos');
+      }
+    } else {
+      showToast('⚠ Archivo no encontrado en GitHub. Usa ⬆ Guardar primero.');
+    }
+  } catch (e) { showToast('✗ Error al leer datos'); }
+}
+
+async function autoLoadFromGitHub() {
+  const cfg = getGhConfig();
+  if (!cfg.user || !cfg.repoName || !cfg.token) return;
+  try {
+    const apiUrl = getApiBase(cfg);
+    const r = await fetch(apiUrl + `?ref=${cfg.branch}`, {
+      headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (r.ok) {
+      const data = await r.json();
+      const decoded = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+      const parsed = JSON.parse(decoded);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        clients = parsed;
+        saveClients();
+        updateKPI();
+        renderTable();
+        setSyncStatus('ok', `✓ GitHub ${new Date().toLocaleTimeString('es', {hour:'2-digit',minute:'2-digit'})}`);
+      }
+    }
+  } catch (e) { /* silent fail */ }
+}
+
+function downloadJSON() {
+  const blob = new Blob([JSON.stringify(clients, null, 2)], { type: 'application/json' });
+  triggerDL(blob, 'Analytix_2026.json');
+}
+
+function downloadCSV() {
+  const headers = ['CLIENTE','COMPONENTES','CONEXIONES PRIMARIAS','GRAFO RELACIONES','NVR','DVR','CAMARAS','ACTUALIZACIONES'];
+  const rows = clients.map(c => [c.cliente, c.componentes??'', c.conexiones??'', c.grafo, c.nvr??'', c.dvr??'', c.cam??'', c.actualizaciones].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8' });
+  triggerDL(blob, 'Analytix_2026.csv');
+}
+
+function downloadXLSX() {
+  const headers = ['CLIENTE','COMPONENTES','CONEXIONES PRIMARIAS','GRAFO RELACIONES','NVR','DVR','CAMARAS','ACTUALIZACIONES'];
+  const rows = clients.map(c => [c.cliente, c.componentes??'', c.conexiones??'', c.grafo, c.nvr??'', c.dvr??'', c.cam??'', c.actualizaciones].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8' });
+  triggerDL(blob, 'Analytix_2026.xlsx');
+  showToast('XLSX descargado como CSV compatible ✓');
+}
+
+function triggerDL(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement('a'), { href: url, download: name });
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast(name + ' descargado ✓');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function refreshSync() {
+  loadClients();
+  showToast('Datos recargados ✓');
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme') || 'dark';
+  const newTheme = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  document.getElementById('themeBtn').textContent = newTheme === 'dark' ? '☽' : '☀';
+  showToast(`Tema ${newTheme === 'dark' ? 'oscuro' : 'claro'} ✓`);
+}
+
+function loadTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themeBtn').textContent = saved === 'dark' ? '☽' : '☀';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.getElementById('notasModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeNotasModal();
+});
+
+document.getElementById('githubModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeGitHubSettings();
+});
+
+function clearSearchInput() {
+  const s = document.getElementById('searchInput');
+  const f = document.getElementById('filterSelect');
+  s.value = ''; s.setAttribute('value', ''); f.value = '';
+}
+
+function forceCleanSearch() {
+  const s = document.getElementById('searchInput');
+  s.value = ''; s.setAttribute('value', '');
+}
+
+loadTheme();
+loadClients();
+refreshSync();
+updateKPI();
+renderTable();
+forceCleanSearch();
+setTimeout(forceCleanSearch, 50);
+setTimeout(forceCleanSearch, 200);
+setTimeout(forceCleanSearch, 500);
+document.addEventListener('DOMContentLoaded', forceCleanSearch);
+window.addEventListener('pageshow', forceCleanSearch);
+
+// Auto-cargar datos desde GitHub al iniciar
+autoLoadFromGitHub();
+</script>
+</body>
+</html>
