@@ -342,15 +342,11 @@
     "nvr": 4,
     "dvr": 4,
     "cam": 3,
-    "actualizaciones": "El problema era el atributo maxlength=\"300\" en el campo de texto de notas. Ya lo quité, y ahora:\n\nEl textarea ya no tiene límite de caracteres, puedes escribir todo el texto que necesites.\nEl contador ya no muestra \"X / 300\", sino simplemente \"X caracteres\" (para que sepas cuánto llevas escrito sin sugerir un tope).\nTambién agrandé un poco el área de texto (de 100px a 160px de alto mínimo) para que sea más cómodo escribir notas largas. Todo lo demás del dashboard (KPIs, tabla de clientes, sincronización con GitHub, historial de notas, tema claro/oscuro) sigue funcionando igual.",
+    "actualizaciones": "Prueba segunda de la nota",
     "historialNotas": [
       {
         "fecha": "18/6/2026, 17:29:46",
         "contenido": "Nueva Prueba de nota"
-      },
-      {
-        "fecha": "7/7/2026, 13:14:49",
-        "contenido": "Prueba segunda de la nota"
       }
     ]
   }
