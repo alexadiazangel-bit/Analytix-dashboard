@@ -202,7 +202,7 @@
     "nvr": 20,
     "dvr": 12,
     "cam": null,
-    "actualizaciones": "Se valido el módulo de CCTV, se ajustó cantidad de cámaras con el apoyo de Oscar Rubio. Por el canal de Soporte Onboarding.",
+    "actualizaciones": "caso 12489599403\nOBSERVACIONES TOPOLÓGICAS Y DE CALIDAD DE DATOS\n1. Cámara NVR BOGOTA-CASINO_CAM Lavado (ID 30226): Aparece en el inventario como cámara IP pero no tiene bordes de salida hacia ningún NVR en el grafo de relaciones. Podría estar desconectada o ser un componente huérfano sin mapeo. Se recomienda investigación.\n\n2. DVR BOGOTA-ALMACEN II - Entrega repuestos (ID 30237): Presenta dos salidas simultáneas: hacia DVR BOGOTA-ALMACEN II (ID 30104) y hacia DVR BOGOTA SERVICIO (ID 30530). Esta doble asignación es inusual y puede indicar un error en el modelo de relaciones o una configuración de grabación dual.\n\n3. Ausencia total de eventos en grabadoras y cámaras: En una flota de este tamaño (~123 canales) durante 24 horas, la ausencia total de eventos es un indicador positivo de salud, pero también puede reflejar una limitación en la cobertura de reglas de monitoreo. Se recomienda verificar que las reglas de detección de pérdida de video, fallas de disco y desconexión de cámara estén activas para todos los componentes.\n\n4. Disco 2 DVR BOGOTA-ALMACEN II (ID 30425) y Disco 2 NVR BOGOTA-CASINO (ID 30423): Estos componentes no tienen relaciones de salida explícitas mapeadas en el grafo, aunque se espera que reporten al DVR/NVR correspondiente. Se recomienda revisar la completitud del modelo de relaciones.",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:32:35 p. m.",
@@ -215,6 +215,10 @@
       {
         "fecha": "1/7/2026, 13:04:27",
         "contenido": "Conexiones Primarias correctas cantidad 34 (DVR-NVR) en Gecolsa- Cali,Yopal,bucaramanga,Montería, Yumbo soledad,Tibasosa,Cúcuta,Turbaco,sabaneta,Sede Américas"
+      },
+      {
+        "fecha": "9/7/2026, 9:08:19",
+        "contenido": "Se valido el módulo de CCTV, se ajustó cantidad de cámaras con el apoyo de Oscar Rubio. Por el canal de Soporte Onboarding."
       }
     ]
   },
