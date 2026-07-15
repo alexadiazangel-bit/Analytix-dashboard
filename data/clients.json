@@ -264,7 +264,7 @@
     "nvr": 62,
     "dvr": 69,
     "cam": null,
-    "actualizaciones": "Se recuperó la comunicación del NVR CUESTECITAS Julio 14 de 2026",
+    "actualizaciones": "Se crearon el 14 de julio 2026 se crearon las relaciones (Grafo)",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:49:38 p. m.",
@@ -313,6 +313,10 @@
       {
         "fecha": "15/7/2026, 10:57:24",
         "contenido": "Segunda novedad Cliente Nissan - Colviseg NVR TALLER POBLADO EXPRESS MEDELLIN\nOscar R. DavidL Agradecemos su apoyo validando el componente \"DISCO 1 DVR EXPRESS MEDELLIN y DVR EXPRESS MEDELLIN_CAMARA 8\", ya que este no corresponde al DVR revisado.\nAdjunto imagen como evidencia. Gracias quedamos atent"
+      },
+      {
+        "fecha": "15/7/2026, 10:58:37",
+        "contenido": "Se recuperó la comunicación del NVR CUESTECITAS Julio 14 de 2026"
       }
     ]
   },
@@ -350,11 +354,15 @@
     "nvr": 4,
     "dvr": 4,
     "cam": 3,
-    "actualizaciones": "Prueba segunda de la nota",
+    "actualizaciones": "Resulta que se pierde la información",
     "historialNotas": [
       {
         "fecha": "18/6/2026, 17:29:46",
         "contenido": "Nueva Prueba de nota"
+      },
+      {
+        "fecha": "15/7/2026, 10:58:07",
+        "contenido": "Prueba segunda de la nota"
       }
     ]
   }
