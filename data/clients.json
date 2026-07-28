@@ -67,11 +67,15 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crean relaciones de sitios en estado online",
+    "actualizaciones": "El dia 27 de julio activaron las alertas de Claro por directriz del Sr. Eduardo Araujo.\nSe da soporte.",
     "historialNotas": [
       {
         "fecha": "24/6/2026, 17:23:10",
         "contenido": "Se continua creado las relaciones"
+      },
+      {
+        "fecha": "28/7/2026, 10:33:02",
+        "contenido": "Se crean relaciones de sitios en estado online"
       }
     ]
   },
