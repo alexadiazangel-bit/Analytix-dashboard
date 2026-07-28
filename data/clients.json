@@ -276,7 +276,7 @@
     "nvr": 62,
     "dvr": 69,
     "cam": null,
-    "actualizaciones": "Se restableció conexión de cámaras del NVR MAZDA CHIA , Es por una validaciones con el Cliente William Rios y Soporte por parte de Oscar Rubio",
+    "actualizaciones": "Se creó el grafo de relaciones de NVR MAZDA CHIA y se asocio los componentes que requerían",
     "historialNotas": [
       {
         "fecha": "28/5/2026, 2:49:38 p. m.",
@@ -341,6 +341,10 @@
       {
         "fecha": "28/7/2026, 15:38:10",
         "contenido": "Se realizó el ajuste del DVR TODO PARTES RIOHACHA le faltaba la letra H entremedio. con el TK 12638400263"
+      },
+      {
+        "fecha": "28/7/2026, 16:24:19",
+        "contenido": "Se restableció conexión de cámaras del NVR MAZDA CHIA , Es por una validaciones con el Cliente William Rios y Soporte por parte de Oscar Rubio"
       }
     ]
   },
