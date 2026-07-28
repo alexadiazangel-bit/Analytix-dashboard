@@ -382,7 +382,7 @@
     "nvr": null,
     "dvr": null,
     "cam": null,
-    "actualizaciones": "Se crearon las notas para guardar datos curiosos: Manejo David Londoño en ajustar la cantidad de conexiones primarias del cliente H.Caldas quedaron 16 conexiones primarias\nPanel Incendio 2 - Hochiki FireNe (EUT)\nPanel Incendio 1 - Silent Knight 5820XL (EUT)\nPower Meter\nAbonado Incendio 4854\nAbonado Incendio 4849\nDVR GINECO\nDVR 3 SUR\nDVR UCI A\nDVR UCI B\nDVR 4 SUR\nDVR 2 SUR\nDVR 5 SUR\nDVR 3 NORTE\nDVR 4 NORTE\nDVR 5 NORTE\nDVR URGENCIAS",
+    "actualizaciones": "Conexiones primarias de H.Caldas 12443755805",
     "historialNotas": [
       {
         "fecha": "18/6/2026, 17:29:46",
@@ -395,6 +395,10 @@
       {
         "fecha": "28/7/2026, 16:29:02",
         "contenido": "Resulta que se pierde la información"
+      },
+      {
+        "fecha": "28/7/2026, 16:30:10",
+        "contenido": "Se crearon las notas para guardar datos curiosos: Manejo David Londoño en ajustar la cantidad de conexiones primarias del cliente H.Caldas quedaron 16 conexiones primarias\nPanel Incendio 2 - Hochiki FireNe (EUT)\nPanel Incendio 1 - Silent Knight 5820XL (EUT)\nPower Meter\nAbonado Incendio 4854\nAbonado Incendio 4849\nDVR GINECO\nDVR 3 SUR\nDVR UCI A\nDVR UCI B\nDVR 4 SUR\nDVR 2 SUR\nDVR 5 SUR\nDVR 3 NORTE\nDVR 4 NORTE\nDVR 5 NORTE\nDVR URGENCIAS"
       }
     ]
   }
